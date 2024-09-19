@@ -4,8 +4,6 @@ using System.Runtime.InteropServices;
 
 using UnityEngine;
 using System;
-
-
 public class JoyconManager: MonoBehaviour
 {
 
