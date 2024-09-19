@@ -44,7 +44,7 @@ public class JoyconController : MonoBehaviour {
             if (j.GetButtonDown(Joycon.Button.SHOULDER_2))
             {
 				// Debug.Log ("Right trigger pressed");
-				joycons[jc_ind].SetRumble(160, 320, 0.6f, 100);  // Short 
+				joycons[jc_ind].SetRumble(160, 320, 0.6f, 75);  // Short 
 				gunshot_clip.Play();
             }
 			// GetButtonDown checks if a button has been released
@@ -98,7 +98,6 @@ public class JoyconController : MonoBehaviour {
 
             // Accel values:  x, y, z axis values (in Gs)
             accel = j.GetAccel();
-            Debug.Log(accel);
             
             orientation = j.GetVector();
             
@@ -144,6 +143,7 @@ public class JoyconController : MonoBehaviour {
 	    float newY = forward.y * pointerSensitivity;
 
 	    // Set the pointer's anchored position (used for UI elements in Canvas)
-	    // pointer.anchoredPosition = new Vector2(newX, newY);
+	    GunController.main.UpdateCrosshairPostiton(new Vector2(newX, newY));
     }
+
 }
