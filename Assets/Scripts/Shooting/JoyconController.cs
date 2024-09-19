@@ -46,7 +46,7 @@ public class JoyconController : MonoBehaviour {
             {
 				// Debug.Log ("Right trigger pressed");
 				joycons[jc_ind].SetRumble(160, 320, 0.6f, 75);  // Short 
-				gunshot_clip.Play();
+				GunController.main.Shoot();
             }
 			// GetButtonDown checks if a button has been released
 			if (j.GetButtonUp (Joycon.Button.SHOULDER_2))
@@ -86,6 +86,7 @@ public class JoyconController : MonoBehaviour {
 				// https://github.com/dekuNukem/Nintendo_Switch_Reverse_Engineering/blob/master/rumble_data_table.md
 
 				j.SetRumble (160, 320, 0.6f, 200);
+
 
 				// The last argument (time) in SetRumble is optional. Call it with three arguments to turn it on without telling it when to turn off.
                 // (Useful for dynamically changing rumble values.)

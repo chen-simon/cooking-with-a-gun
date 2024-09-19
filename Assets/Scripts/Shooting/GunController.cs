@@ -9,6 +9,8 @@ public class GunController : MonoBehaviour
     public RectTransform crosshair;
     public Transform gunModel;
     public float distance;
+
+    [SerializeField] AudioSource gunshotClip;
     
     void Awake()
     {
@@ -25,6 +27,17 @@ public class GunController : MonoBehaviour
     void Update()
     {
         UpdateGunModelRotation();
+    }
+
+    public void Shoot()
+    {
+        gunshotClip.Play();
+
+        // ... TODO: add more logic, 
+
+        // Hit all IShootables and call TakeShot();
+        // if didn't hit IShootable, but hit physics object, add force
+        Ray ray = Camera.main.ScreenPointToRay(crosshair.anchoredPosition + new Vector2(Screen.width / 2, Screen.height / 2));
     }
 
     public void UpdateCrosshairPostiton(Vector2 screenPosition)

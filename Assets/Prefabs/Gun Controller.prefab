@@ -249,6 +249,7 @@ MonoBehaviour:
   crosshair: {fileID: 5750332628310627726}
   gunModel: {fileID: 9109670268356091431}
   distance: 50
+  gunshotClip: {fileID: 84849063576714561}
 --- !u!1 &3976182438215752384
 GameObject:
   m_ObjectHideFlags: 0
