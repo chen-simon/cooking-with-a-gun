@@ -122,12 +122,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!224 &158834669 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5750332628310627726, guid: 8e1ded4ef3d7640e1826d445c3f76eac,
+    type: 3}
+  m_PrefabInstance: {fileID: 1071148880862777581}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &192455561 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3378506479355518407, guid: 8e1ded4ef3d7640e1826d445c3f76eac,
+    type: 3}
+  m_PrefabInstance: {fileID: 1071148880862777581}
+  m_PrefabAsset: {fileID: 0}
 --- !u!82 &192455562 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 84849063576714561, guid: 8e1ded4ef3d7640e1826d445c3f76eac,
     type: 3}
   m_PrefabInstance: {fileID: 1071148880862777581}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &192455564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192455561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 177f50301bb344db3ab0e07f94417175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crosshair: {fileID: 158834669}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,7 +670,8 @@ MonoBehaviour:
   gyro: {x: 0, y: 0, z: 0}
   accel: {x: 0, y: 0, z: 0}
   jc_ind: 0
-  orientation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+  orientation: {x: 0, y: 0, z: 0, w: 1}
+  pointerSensitivity: 1600
   gunshot_clip: {fileID: 192455562}
   destroyedPrefab: {fileID: 0}
   pointer: {fileID: 0}
@@ -677,7 +703,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 981117501}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -728,7 +754,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 981117501}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.7917798, y: -0.20362827, z: -0.26614454}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -992,7 +1018,7 @@ PrefabInstance:
     - target: {fileID: 3378506479355518407, guid: 8e1ded4ef3d7640e1826d445c3f76eac,
         type: 3}
       propertyPath: m_Name
-      value: GunController
+      value: Gun Controller
       objectReference: {fileID: 0}
     - target: {fileID: 5228328366143849590, guid: 8e1ded4ef3d7640e1826d445c3f76eac,
         type: 3}
@@ -1047,7 +1073,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3378506479355518407, guid: 8e1ded4ef3d7640e1826d445c3f76eac,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 192455564}
   m_SourcePrefab: {fileID: 100100000, guid: 8e1ded4ef3d7640e1826d445c3f76eac, type: 3}
 --- !u!1001 &2297610868154389028
 PrefabInstance:

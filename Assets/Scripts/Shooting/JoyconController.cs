@@ -14,6 +14,7 @@ public class JoyconController : MonoBehaviour {
     public int jc_ind = 0;
     public Quaternion orientation;
     private Quaternion aim_offset;
+	public float pointerSensitivity = 0.05f;
 
     public AudioSource gunshot_clip;
 
@@ -133,14 +134,14 @@ public class JoyconController : MonoBehaviour {
     {
 	    // Convert the orientation to a forward vector (direction the Joycon is pointing)
 	    Vector3 forward = joyconOrientation * Vector3.forward;
+		Vector3 eulerOrientation = orientation.eulerAngles;
 
 	    // You can use the x and y axes from the forward vector to calculate pointer position
 	    // Map these values to the screen (e.g., multiplying by some sensitivity factor)
-	    float pointerSensitivity = 300f;  // Adjust this value to fine-tune the pointer speed
 
 	    // Assuming you want to move the pointer in 2D space (x and y coordinates of the screen)
-	    float newX = forward.x * pointerSensitivity;
-	    float newY = forward.y * pointerSensitivity;
+	    float newX = transform.rotation.y * pointerSensitivity;
+	    float newY = transform.rotation.x * -pointerSensitivity;
 
 	    // Set the pointer's anchored position (used for UI elements in Canvas)
 	    GunController.main.UpdateCrosshairPostiton(new Vector2(newX, newY));
