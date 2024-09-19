@@ -249,6 +249,11 @@ MonoBehaviour:
   crosshair: {fileID: 5750332628310627726}
   gunModel: {fileID: 9109670268356091431}
   distance: 50
+  currentGun: {fileID: 11400000, guid: 957fb8b40b81b47ac82ea83176e7d19a, type: 2}
+  muzzleFlash: {fileID: 578791434797503697}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 51
   gunshotClip: {fileID: 84849063576714561}
 --- !u!1 &3976182438215752384
 GameObject:
@@ -560,6 +565,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a664be30a94dd43a994adb4b0862ee28, type: 3}
+--- !u!114 &578791434797503697 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9112633901183788353, guid: a664be30a94dd43a994adb4b0862ee28,
+    type: 3}
+  m_PrefabInstance: {fileID: 8538495035008168336}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95bab883f8c1d4d8281eb2c5a750bd85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &9109670268356091431 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 581772659815378871, guid: a664be30a94dd43a994adb4b0862ee28,
