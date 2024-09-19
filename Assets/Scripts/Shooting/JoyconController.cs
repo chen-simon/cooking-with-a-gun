@@ -45,7 +45,9 @@ public class JoyconController : MonoBehaviour {
             if (j.GetButtonDown(Joycon.Button.SHOULDER_2))
             {
 				// Debug.Log ("Right trigger pressed");
-				joycons[jc_ind].SetRumble(160, 320, 0.6f, 75);  // Short 
+				Gun currentGun = GunController.main.currentGun;
+
+				joycons[jc_ind].SetRumble(160, 320, currentGun.rumbleMagnitude, currentGun.rumbleTime);  // Short 
 				GunController.main.Shoot();
             }
 			// GetButtonDown checks if a button has been released
