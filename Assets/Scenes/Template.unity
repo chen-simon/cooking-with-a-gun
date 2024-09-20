@@ -231,6 +231,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &188856141 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7780328811320210846, guid: ea1dcc5643f434284a461000972f630c,
+    type: 3}
+  m_PrefabInstance: {fileID: 72461403016991274}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &188856144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188856141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce47d9bd349b42b0bc174569d03ef75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &192455562 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 84849063576714561, guid: 8e1ded4ef3d7640e1826d445c3f76eac,
@@ -913,7 +931,7 @@ PrefabInstance:
     - target: {fileID: 7780328811320210846, guid: ea1dcc5643f434284a461000972f630c,
         type: 3}
       propertyPath: m_Name
-      value: Joycon Manager
+      value: InputManager
       objectReference: {fileID: 0}
     - target: {fileID: 8109688689401625244, guid: ea1dcc5643f434284a461000972f630c,
         type: 3}
@@ -968,7 +986,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7780328811320210846, guid: ea1dcc5643f434284a461000972f630c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 188856144}
   m_SourcePrefab: {fileID: 100100000, guid: ea1dcc5643f434284a461000972f630c, type: 3}
 --- !u!1001 &1071148880862777581
 PrefabInstance:
