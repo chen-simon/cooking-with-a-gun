@@ -8,6 +8,7 @@ public class RecipeManager : MonoBehaviour
     // Hard Coded for Fried Egg!
 
     public static RecipeManager main;
+    public FriedEgg friedEgg;
 
     [SerializeField] EggLauncher launcher;
 
@@ -26,14 +27,29 @@ public class RecipeManager : MonoBehaviour
         
     }
 
-    public void CompleteTask(int id)
+    public bool CompleteTask(int id)
     {
-        
+        Stage2();
+        return true;
     }
 
     void Stage1()
     {
         launcher.StartLaunching();
+    }
 
+    void Stage2()
+    {
+        launcher.StopLaunching();
+        StartCoroutine(Stage2Coroutine());
+    }
+
+    IEnumerator Stage2Coroutine()
+    {
+        yield return new WaitForSeconds(2);
+        Rigidbody rb = friedEgg.GetComponent<Rigidbody>();
+
+        rb.angularVelocity = Vector3.zero;
+        
     }
 }

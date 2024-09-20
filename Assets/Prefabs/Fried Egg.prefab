@@ -81,7 +81,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9f82181b291cf4de8b496d973b220211,
         type: 3}
       propertyPath: m_Name
-      value: fried_egg_model
+      value: Fried Egg
       objectReference: {fileID: 0}
     - target: {fileID: 4221069341985761098, guid: 9f82181b291cf4de8b496d973b220211,
         type: 3}
@@ -96,5 +96,58 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9f82181b291cf4de8b496d973b220211,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -4588038097962077367}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9f82181b291cf4de8b496d973b220211,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -86073408563131106}
   m_SourcePrefab: {fileID: 100100000, guid: 9f82181b291cf4de8b496d973b220211, type: 3}
+--- !u!1 &3026923539355572946 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9f82181b291cf4de8b496d973b220211,
+    type: 3}
+  m_PrefabInstance: {fileID: 2792411238766978947}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &-4588038097962077367
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3026923539355572946}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &-86073408563131106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3026923539355572946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60dd99565fc4f4a2fb814f57baf4b9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

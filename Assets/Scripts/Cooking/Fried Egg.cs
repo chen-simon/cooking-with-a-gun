@@ -4,10 +4,21 @@ using UnityEngine;
 
 public class FriedEgg : MonoBehaviour
 {
+    Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
+
+        bool status = RecipeManager.main.CompleteTask(0);
+
+        if (status)
+        {
+            rb.useGravity = false;
+            rb.drag = 2f;
+
+            RecipeManager.main.friedEgg = this;
+        }
     }
 
     // Update is called once per frame
@@ -15,4 +26,6 @@ public class FriedEgg : MonoBehaviour
     {
         
     }
+
+
 }
