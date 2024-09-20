@@ -26,11 +26,6 @@ public class GunController : MonoBehaviour
         else main = this;
     }
 
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {

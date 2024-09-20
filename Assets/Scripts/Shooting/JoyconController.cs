@@ -20,8 +20,7 @@ public class JoyconController : MonoBehaviour {
 
 	public GameObject destroyedPrefab;
 	
-	public RectTransform pointer;
-    void Start ()
+	void Start ()
     {
         gyro = new Vector3(0, 0, 0);
         accel = new Vector3(0, 0, 0);
@@ -44,11 +43,7 @@ public class JoyconController : MonoBehaviour {
 			// GetButtonDown checks if a button has been pressed (not held)
             if (j.GetButtonDown(Joycon.Button.SHOULDER_2))
             {
-				// Debug.Log ("Right trigger pressed");
-				Gun currentGun = GunController.main.currentGun;
-
-				joycons[jc_ind].SetRumble(160, 320, currentGun.rumbleMagnitude, currentGun.rumbleTime);  // Short 
-				GunController.main.Shoot();
+	            ShootInput();
             }
 			// GetButtonDown checks if a button has been released
 			if (j.GetButtonUp (Joycon.Button.SHOULDER_2))
@@ -136,7 +131,11 @@ public class JoyconController : MonoBehaviour {
     void UpdatePointerPosition(Quaternion joyconOrientation)
     {
 	    // Convert the orientation to a forward vector (direction the Joycon is pointing)
-	    Vector3 forward = joyconOrientation * Vector3.forward;
+	    // Rotate the entire joycon orientation by 90 degrees to match the orientation of the gun model
+	    
+	    Quaternion new_orientation = Quaternion.Euler(-90, 0, 0) * joyconOrientation;
+	    
+	    Vector3 forward = new_orientation * Vector3.forward;
 		Vector3 eulerOrientation = orientation.eulerAngles;
 
 	    // You can use the x and y axes from the forward vector to calculate pointer position
@@ -147,9 +146,18 @@ public class JoyconController : MonoBehaviour {
 	    // Assuming you want to move the pointer in 2D space (x and y coordinates of the screen)
 	    float newX = Mathf.Sin(transform.rotation.eulerAngles.y * DEG_TO_RAD) * pointerSensitivity;
 	    float newY = Mathf.Sin(transform.rotation.eulerAngles.x * DEG_TO_RAD) * -pointerSensitivity;
-
+	    
+	    
 	    // Set the pointer's anchored position (used for UI elements in Canvas)
 	    GunController.main.UpdateCrosshairPostiton(new Vector2(newX, newY));
     }
 
+    public void ShootInput()
+    {
+	    // Debug.Log ("Right trigger pressed");
+	    Gun currentGun = GunController.main.currentGun;
+
+	    joycons[jc_ind].SetRumble(160, 320, currentGun.rumbleMagnitude, currentGun.rumbleTime); // Short 
+	    GunController.main.Shoot();
+    }
 }
