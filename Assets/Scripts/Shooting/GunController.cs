@@ -40,6 +40,7 @@ public class GunController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position, rayDirection, out hit, Mathf.Infinity, layerMask))
         {
+            
             if (TryShootEffect(hit) == false) {
                 TryShootPhysics(hit);
             }
@@ -48,9 +49,12 @@ public class GunController : MonoBehaviour
 
     bool TryShootEffect(RaycastHit hit)
     {
+        Rigidbody rb = hit.collider.attachedRigidbody;
+        if (rb == null) return false;
+
         IShootable shootable = null;
         try {
-            shootable = hit.collider.GetComponent<IShootable>();
+            shootable = rb.GetComponent<IShootable>();
             shootable.TakeShot();
             return true;
         }
@@ -65,7 +69,7 @@ public class GunController : MonoBehaviour
         Rigidbody rb = hit.collider.attachedRigidbody;
         if (rb == null) return false;
 
-        rb.AddForce(rayDirection * currentGun.knockbackForce);
+        rb.AddForce(-hit.normal * Mathf.Abs(Vector3.Dot(hit.normal, rayDirection)) * currentGun.knockbackForce);
         return true;
     }
 
