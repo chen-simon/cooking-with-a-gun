@@ -32,10 +32,9 @@ public class MouseManager : MonoBehaviour
             
         // Convert the mouse position to a canvas position
         Vector2 canvasPosition = Camera.main.ScreenToViewportPoint(mousePosition);
-        Debug.Log("Canvas position: " + canvasPosition);
             
-        canvasPosition.x = (canvasPosition.x * 1920) - 960;
-        canvasPosition.y = (canvasPosition.y * 1080) - 540;
+        canvasPosition.x = (canvasPosition.x * Screen.width) - Screen.width / 2;
+        canvasPosition.y = (canvasPosition.y * Screen.height) - Screen.height / 2;
             
         GunController.main.UpdateCrosshairPostiton(canvasPosition);
     }

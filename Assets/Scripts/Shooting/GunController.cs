@@ -14,6 +14,8 @@ public class GunController : MonoBehaviour
     public Gun currentGun;
     public MuzzleFlash muzzleFlash;
 
+    public Transform cube;
+
     Vector3 rayDirection;
     
     public LayerMask layerMask;
@@ -76,10 +78,17 @@ public class GunController : MonoBehaviour
 
     void UpdateGunModelRotation()
     {
-        Ray ray = Camera.main.ScreenPointToRay(crosshair.anchoredPosition + new Vector2(Screen.width / 2, Screen.height / 2));
+        float heightScale = Screen.height / 1080f;
+        float widthScale = Screen.width / 1920f;
+        Vector2 scaledCrosshairCoords = 
+            new Vector2(crosshair.anchoredPosition.x * widthScale + Screen.width / 2,
+                        crosshair.anchoredPosition.y * heightScale + Screen.height / 2);
+
+        Ray ray = Camera.main.ScreenPointToRay(scaledCrosshairCoords);
         rayDirection = ray.direction;
 
         Vector3 target = ray.direction * distance + Camera.main.transform.position;
+        if (cube != null) cube.position = target; // debugging cube
 
         Vector3 targetDirection = gunModel.transform.position - target;
         Vector3 newDirection = Vector3.RotateTowards(gunModel.forward, targetDirection, Mathf.PI, 0);
