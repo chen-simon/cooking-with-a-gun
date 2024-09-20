@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 
@@ -40,37 +41,28 @@ public class GunController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position, rayDirection, out hit, Mathf.Infinity, layerMask))
         {
-            
-            if (TryShootEffect(hit) == false) {
-                TryShootPhysics(hit);
-            }
+            ShootEffect(hit);
+
         }
     }
 
-    bool TryShootEffect(RaycastHit hit)
+    void ShootEffect(RaycastHit hit)
     {
         Rigidbody rb = hit.collider.attachedRigidbody;
-        if (rb == null) return false;
+        if (rb == null) return;
 
-        IShootable shootable = null;
-        try {
-            shootable = rb.GetComponent<IShootable>();
-            shootable.TakeShot();
-            return true;
-        }
-        catch
-        {
-            return false;
-        }
-    }
+        Vector3 knockbackForce = -hit.normal * Mathf.Abs(Vector3.Dot(hit.normal, rayDirection)) * currentGun.knockbackForce;
 
-    bool TryShootPhysics(RaycastHit hit)
-    {
-        Rigidbody rb = hit.collider.attachedRigidbody;
-        if (rb == null) return false;
+        rb.AddForce(knockbackForce);
 
-        rb.AddForce(-hit.normal * Mathf.Abs(Vector3.Dot(hit.normal, rayDirection)) * currentGun.knockbackForce);
-        return true;
+        AudioSource audioSource = rb.GetComponent<AudioSource>();
+        if (audioSource)
+            audioSource.Play();
+
+        IShootable shootable = rb.GetComponent<IShootable>();
+        if (shootable != null)
+            shootable.TakeShot(knockbackForce);
+
     }
 
     public void UpdateCrosshairPostiton(Vector2 screenPosition)

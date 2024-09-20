@@ -19,9 +19,24 @@ public class Egg : MonoBehaviour, IShootable
         
     }
 
-    public void TakeShot()
+    public void TakeShot(Vector3 knockbackForce)
     {
-        Instantiate(eggShellPrefab, transform.position, Quaternion.identity);
-        Instantiate(eggInsidesPrefab, transform.position, Quaternion.identity);
+        GameObject eggShell = Instantiate(eggShellPrefab, transform.position, transform.rotation);
+        GameObject eggInsides = Instantiate(eggInsidesPrefab, transform.position, transform.rotation);
+
+        Rigidbody rb = GetComponent<Rigidbody>();
+        eggShell.GetComponent<Rigidbody>().velocity = rb.velocity;
+        eggShell.GetComponent<Rigidbody>().angularVelocity = new Vector3(Random.Range(-10f, 10f),
+                                                                        Random.Range(-10f, 10f),
+                                                                        Random.Range(-10f, 10f));
+        eggShell.GetComponent<Rigidbody>().AddForce(knockbackForce);
+
+        eggInsides.GetComponent<Rigidbody>().velocity = rb.velocity;
+        eggInsides.GetComponent<Rigidbody>().angularVelocity = new Vector3(Random.Range(-10f, 10f),
+                                                                        Random.Range(-10f, 10f),
+                                                                        Random.Range(-10f, 10f));
+        eggInsides.GetComponent<Rigidbody>().AddForce(knockbackForce);
+
+        Destroy(gameObject);
     }
 }

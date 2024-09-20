@@ -73,8 +73,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70193230040544a1c87260a4cc3b26ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eggShellPrefab: {fileID: 0}
-  eggInsidesPrefab: {fileID: 0}
+  eggShellPrefab: {fileID: 8130538934853953099, guid: 99b91f9f8b6e745d2beae0ce537db716,
+    type: 3}
+  eggInsidesPrefab: {fileID: 3026923539355572946, guid: 59dea227e589c4a33b0ca7e2ffe582a3,
+    type: 3}
 --- !u!1001 &6008813387980732791
 PrefabInstance:
   m_ObjectHideFlags: 0

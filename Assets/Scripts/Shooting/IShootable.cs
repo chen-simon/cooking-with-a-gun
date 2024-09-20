@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IShootable
 {
-    public void TakeShot();
+    public void TakeShot(Vector3 knockbackForce);
 }

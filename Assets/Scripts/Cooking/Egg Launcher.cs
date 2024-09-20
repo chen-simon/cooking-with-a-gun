@@ -12,13 +12,22 @@ public class EggLauncher : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(LaunchEgg());
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void StartLaunching()
+    {
+        StartCoroutine(LaunchEgg());
+    }
+
+    public void StopLaunching()
+    {
+        StopAllCoroutines();
     }
 
     IEnumerator LaunchEgg()
@@ -29,9 +38,9 @@ public class EggLauncher : MonoBehaviour
 
         Rigidbody rb = egg.GetComponent<Rigidbody>();
 
-        rb.AddTorque(new Vector3(Random.Range(-1f, 1f),
-                                 Random.Range(-1f, 1f),
-                                 Random.Range(-1f, 1f)));
+        rb.AddTorque(new Vector3(Random.Range(-10f, 10f),
+                                 Random.Range(-10f, 10f),
+                                 Random.Range(-10f, 10f)));
         
         rb.AddForce(launchForce * transform.forward);
 

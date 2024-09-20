@@ -4,15 +4,36 @@ using UnityEngine;
 
 public class RecipeManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    // Hard Coded for Fried Egg!
+
+    public static RecipeManager main;
+
+    [SerializeField] EggLauncher launcher;
+
+    void Awake()
+    {
+        if (main) Destroy(gameObject);
+        else main = this;
+    }
+
+    void Start ()
+    {
+        Stage1();
+    }
+    void Update()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void CompleteTask(int id)
     {
         
+    }
+
+    void Stage1()
+    {
+        launcher.StartLaunching();
+
     }
 }
