@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class MouseManager : MonoBehaviour
 {
@@ -27,15 +28,14 @@ public class MouseManager : MonoBehaviour
 
     public void UpdatePointerPosition()
     {
-        // Convert the mouse position to a canvas position
-        Vector2 mousePosition = Input.mousePosition;
             
         // Convert the mouse position to a canvas position
-        Vector2 canvasPosition = Camera.main.ScreenToViewportPoint(mousePosition);
+        float scaling =  1920f / Screen.width;
+        Vector2 canvasPosition = Input.mousePosition * scaling;
             
-        canvasPosition.x = (canvasPosition.x * Screen.width) - Screen.width / 2;
-        canvasPosition.y = (canvasPosition.y * Screen.height) - Screen.height / 2;
-            
+        canvasPosition.x = canvasPosition.x - Screen.width / 2;
+        canvasPosition.y = canvasPosition.y - Screen.height / 2;
+        
         GunController.main.UpdateCrosshairPostiton(canvasPosition);
     }
 }
