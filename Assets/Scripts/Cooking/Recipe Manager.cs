@@ -76,9 +76,11 @@ public class RecipeManager : MonoBehaviour
 
     IEnumerator FinishOrder()
     {
-        yield return new WaitForSeconds(1.5f);
-        friedEgg.transform.DOMove(exitLocation.position, eggMoveTime);
         flips = 0;
+        Transform eggToMove = friedEgg.transform;
+        friedEgg = null;
+        yield return new WaitForSeconds(1.5f);
+        eggToMove.DOMove(exitLocation.position, eggMoveTime);
     }
 
 
