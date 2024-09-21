@@ -33,8 +33,8 @@ public class MouseManager : MonoBehaviour
         float scaling =  1920f / Screen.width;
         Vector2 canvasPosition = Input.mousePosition * scaling;
             
-        canvasPosition.x = canvasPosition.x - Screen.width / 2;
-        canvasPosition.y = canvasPosition.y - Screen.height / 2;
+        canvasPosition.x = canvasPosition.x - (Screen.width / 2) * scaling;
+        canvasPosition.y = canvasPosition.y - (Screen.height / 2) * scaling;
         
         GunController.main.UpdateCrosshairPostiton(canvasPosition);
     }
