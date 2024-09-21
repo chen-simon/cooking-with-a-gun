@@ -15,6 +15,8 @@ public class GunController : MonoBehaviour
     public Gun currentGun;
     public MuzzleFlash muzzleFlash;
 
+    bool inCooldown;
+
     Vector3 rayDirection;
     
     public LayerMask layerMask;
@@ -35,6 +37,8 @@ public class GunController : MonoBehaviour
 
     public void Shoot()
     {
+        if (inCooldown) return;
+
         gunshotClip.Play();
         muzzleFlash.Flash();
 
@@ -42,8 +46,9 @@ public class GunController : MonoBehaviour
         if (Physics.Raycast(Camera.main.transform.position, rayDirection, out hit, Mathf.Infinity, layerMask))
         {
             ShootEffect(hit);
-
         }
+        StartCoroutine(Cooldown());
+        
     }
 
     void ShootEffect(RaycastHit hit)
@@ -87,4 +92,11 @@ public class GunController : MonoBehaviour
         Vector3 newDirection = Vector3.RotateTowards(gunModel.forward, targetDirection, Mathf.PI, 0);
         gunModel.transform.rotation = Quaternion.LookRotation(newDirection);
     }    
+
+    IEnumerator Cooldown()
+    {
+        inCooldown = true;
+        yield return new WaitForSeconds(0.01f);
+        inCooldown = false;
+    }
 }

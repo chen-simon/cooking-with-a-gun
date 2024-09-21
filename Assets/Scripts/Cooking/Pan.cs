@@ -6,6 +6,7 @@ using UnityEngine;
 public class Pan : MonoBehaviour, IShootable
 {
     public float launchForce;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,12 +22,14 @@ public class Pan : MonoBehaviour, IShootable
     public void TakeShot(Vector3 knockbackForce)
     {
         if (RecipeManager.main.friedEgg == null) return;
-        
+
         Rigidbody eggRb = RecipeManager.main.friedEgg.GetComponent<Rigidbody>();
 
         eggRb.AddForce(Vector3.up * launchForce);
         eggRb.angularVelocity = new Vector3(Random.Range(-10f, 10f),
                                             Random.Range(-10f, 10f),
                                             Random.Range(-10f, 10f));
+        
+        RecipeManager.main.Flip();
     }
 }

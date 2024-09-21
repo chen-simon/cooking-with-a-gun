@@ -12,6 +12,10 @@ public class RecipeManager : MonoBehaviour
     public FriedEgg friedEgg;
     public Transform panLocation;
 
+    int currentStage;
+
+    public int flips;
+
     float eggMoveTime = 0.8f;
     public AudioSource sparkleSfx;
 
@@ -32,11 +36,25 @@ public class RecipeManager : MonoBehaviour
         
     }
 
+    public void Flip()
+    {
+        flips++;
+        if (flips >= 5)
+        {
+            CompleteTask(1);
+        }
+    }
+
     public bool CompleteTask(int id)
     {
-        sparkleSfx.Play();
-        Stage2();
-        return true;
+        if (id == currentStage)
+        {            
+            sparkleSfx.Play();
+            Stage2();
+            currentStage++;
+            return true;
+        }
+        return false;
     }
 
     void Stage1()
