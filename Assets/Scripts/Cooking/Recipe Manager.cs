@@ -11,6 +11,7 @@ public class RecipeManager : MonoBehaviour
     public static RecipeManager main;
     public FriedEgg friedEgg;
     public Transform panLocation;
+    public Transform exitLocation;
 
     int currentStage;
 
@@ -50,8 +51,13 @@ public class RecipeManager : MonoBehaviour
         if (id == currentStage)
         {            
             sparkleSfx.Play();
-            Stage2();
-            currentStage++;
+            if (id == 0) { Stage2(); }
+            if (id == 1)
+            {
+                StartCoroutine(FinishOrder());
+                Stage1();
+            }
+            currentStage = (currentStage + 1) % 2;
             return true;
         }
         return false;
@@ -67,6 +73,14 @@ public class RecipeManager : MonoBehaviour
         launcher.StopLaunching();
         StartCoroutine(Stage2Coroutine());
     }
+
+    IEnumerator FinishOrder()
+    {
+        yield return new WaitForSeconds(1.5f);
+        friedEgg.transform.DOMove(exitLocation.position, eggMoveTime);
+        flips = 0;
+    }
+
 
     IEnumerator Stage2Coroutine()
     {
