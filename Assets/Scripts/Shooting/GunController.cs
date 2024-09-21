@@ -96,7 +96,7 @@ public class GunController : MonoBehaviour
     IEnumerator Cooldown()
     {
         inCooldown = true;
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(1f / currentGun.firerate);
         inCooldown = false;
     }
 }
