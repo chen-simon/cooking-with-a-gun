@@ -10,8 +10,10 @@ public class RecipeManager : MonoBehaviour
 
     public static RecipeManager main;
     public FriedEgg friedEgg;
+    public DinnerBell dinnerBell;
     public Transform panLocation;
     public Transform exitLocation;
+    [SerializeField]private OrderManager orderManager;
 
     int currentStage;
 
@@ -42,7 +44,8 @@ public class RecipeManager : MonoBehaviour
         flips++;
         if (flips >= 5)
         {
-            CompleteTask(1);
+            sparkleSfx.Play();
+            dinnerBell.active_hit();
         }
     }
 
@@ -50,8 +53,12 @@ public class RecipeManager : MonoBehaviour
     {
         if (id == currentStage)
         {            
-            sparkleSfx.Play();
-            if (id == 0) { Stage2(); }
+            
+            if (id == 0) 
+            { 
+                sparkleSfx.Play();
+                Stage2(); 
+            }
             if (id == 1)
             {
                 StartCoroutine(FinishOrder());
@@ -77,10 +84,13 @@ public class RecipeManager : MonoBehaviour
     IEnumerator FinishOrder()
     {
         flips = 0;
+        dinnerBell.deactive_hit();
         Transform eggToMove = friedEgg.transform;
         friedEgg = null;
         yield return new WaitForSeconds(1.5f);
         eggToMove.DOMove(exitLocation.position, eggMoveTime);
+        orderManager.OrderFinished();
+        orderManager.OrderUpdate();
     }
 
 

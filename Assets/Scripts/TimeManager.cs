@@ -57,7 +57,6 @@ public class TimeManager : MonoBehaviour
     {
         isDayOver = true; // Mark that the day is over
         ShowSummary(); // Show the summary UI
-        orderManager.ClearOrderList();
         Time.timeScale = 0f; // Pause the game
     }
 

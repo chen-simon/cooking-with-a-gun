@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]private OrderManager orderManager;
     void Start()
     {
-        
+        orderManager.OrderUpdate();
     }
 
     // Update is called once per frame
@@ -17,6 +17,10 @@ public class GameManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             orderManager.OrderUpdate();
+        }
+        if(Input.GetKeyDown(KeyCode.Tab))
+        {
+            orderManager.OrderFinished();
         }
     }
 }

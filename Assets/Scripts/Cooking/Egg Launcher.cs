@@ -43,7 +43,6 @@ public class EggLauncher : MonoBehaviour
                                  Random.Range(-10f, 10f)));
         
         rb.AddForce(launchForce * transform.forward);
-
         StartCoroutine(LaunchEgg());
     }
 }

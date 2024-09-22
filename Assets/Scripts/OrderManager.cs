@@ -7,10 +7,22 @@ public class OrderManager : MonoBehaviour
 {
     public static OrderManager Instance {get; private set;}
     [SerializeField]private RecipeListSO recipeListSO;
+    [SerializeField]private RecipeSO currentRecipe;
     public bool activeOrder = false;
-    [SerializeField]private List<RecipeSO> orderRecipeList = new List<RecipeSO>();
+    
     public event EventHandler OnRecipeSpwaned; 
-
+    public event EventHandler OnRecipeFinished;
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject); // Ensures only one instance exists
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
     private void Update(){
         if(activeOrder == true)
         {
@@ -22,17 +34,16 @@ public class OrderManager : MonoBehaviour
     public void OrderUpdate()
     {
         int index = UnityEngine.Random.Range(0, recipeListSO.recipeSOList.Count);
-        ClearOrderList();
-        orderRecipeList.Add(recipeListSO.recipeSOList[index]); 
+        currentRecipe = recipeListSO.recipeSOList[index]; 
         OnRecipeSpwaned?.Invoke(this, EventArgs.Empty);
     }
 
-    public void ClearOrderList()
+    public void OrderFinished()
     {
-        orderRecipeList.Clear();
+        OnRecipeFinished?.Invoke(this, EventArgs.Empty);  
     }
 
-    public List<RecipeSO> getOrderList(){
-        return orderRecipeList;
+    public RecipeSO getCurrentRecipe(){
+        return currentRecipe;
     }
 }
