@@ -14,7 +14,7 @@ public class RecipeUI : MonoBehaviour
     }
     public void UpdateUI( RecipeSO recipeSO)
     {
-        RecipeNameText.text = recipeSO.recipeName;
+        RecipeNameText.text = recipeSO.recipeName + $" ${recipeSO.price}";
         foreach(IngredientSO ingredientSO in recipeSO.IngredientSOList)
         {
             Image newIcon = GameObject.Instantiate(iconTemplete);

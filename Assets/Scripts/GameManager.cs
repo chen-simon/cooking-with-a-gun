@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]private OrderManager orderManager;
+    [SerializeField]private TextMeshProUGUI money;
+    private int totalEarnings = 0;
+    public int revenue = 0;
     void Start()
     {
         orderManager.OrderUpdate();
+        UpdateMoeny();
     }
 
     // Update is called once per frame
@@ -22,5 +27,16 @@ public class GameManager : MonoBehaviour
         {
             orderManager.OrderFinished();
         }
+    }
+
+    public void CalculateEarnings(RecipeSO recipeSO)
+    {
+        totalEarnings += recipeSO.price;
+        revenue += recipeSO.price;
+    }
+
+    public void UpdateMoeny()
+    {
+        money.text = $"Money: ${totalEarnings}";
     }
 }

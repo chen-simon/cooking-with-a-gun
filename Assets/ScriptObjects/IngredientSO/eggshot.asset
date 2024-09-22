@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: eggshot
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
-  sprite: {fileID: 21300000, guid: 342b95aff6675fb47a1ef601b891fd17, type: 3}
+  sprite: {fileID: 21300000, guid: 6ad2e6edfaeadd64cb3f034f04d455d1, type: 3}
   objectName: EggShoot

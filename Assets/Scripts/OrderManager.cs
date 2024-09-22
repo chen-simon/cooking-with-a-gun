@@ -6,9 +6,11 @@ using UnityEngine;
 public class OrderManager : MonoBehaviour
 {
     public static OrderManager Instance {get; private set;}
+    [SerializeField]private GameManager gameManager;
     [SerializeField]private RecipeListSO recipeListSO;
     [SerializeField]private RecipeSO currentRecipe;
     public bool activeOrder = false;
+    public int orderCounter = 0; 
     
     public event EventHandler OnRecipeSpwaned; 
     public event EventHandler OnRecipeFinished;
@@ -41,6 +43,9 @@ public class OrderManager : MonoBehaviour
     public void OrderFinished()
     {
         OnRecipeFinished?.Invoke(this, EventArgs.Empty);  
+        gameManager.CalculateEarnings(currentRecipe);
+        gameManager.UpdateMoeny();
+        orderCounter++;
     }
 
     public RecipeSO getCurrentRecipe(){

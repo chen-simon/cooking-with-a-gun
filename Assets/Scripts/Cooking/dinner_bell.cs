@@ -5,12 +5,12 @@ using UnityEngine;
 public class DinnerBell : MonoBehaviour, IShootable
 {
     private bool active = false;
-    [SerializeField] private RecipeManager recipeManager;
+    [SerializeField] private FriedEggManager FriedEggManager;
     public void TakeShot(Vector3 knockbackForce)
     {
         if(active)
         {
-            recipeManager.CompleteTask(1);
+            FriedEggManager.CompleteTask(1);
         }
     }
 

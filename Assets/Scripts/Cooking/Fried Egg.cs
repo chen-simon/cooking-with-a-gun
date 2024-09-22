@@ -10,14 +10,14 @@ public class FriedEgg : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
-        bool status = RecipeManager.main.CompleteTask(0);
+        bool status = FriedEggManager.main.CompleteTask(0);
 
         if (status)
         {
             rb.useGravity = false;
             rb.drag = 2f;
 
-            RecipeManager.main.friedEgg = this;
+            FriedEggManager.main.friedEgg = this;
         }
     }
 

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeName: FriedEgg
   sprite: {fileID: 0}
+  price: 10
   IngredientSOList:
   - {fileID: 11400000, guid: e764bc25e40b0fe44a59641f6673d8a4, type: 2}
   - {fileID: 11400000, guid: 969fada0c26380d489914c8ce886d276, type: 2}

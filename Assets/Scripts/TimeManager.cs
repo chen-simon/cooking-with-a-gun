@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
+using System;
 
 public class TimeManager : MonoBehaviour
 {
@@ -11,9 +12,12 @@ public class TimeManager : MonoBehaviour
 
     public TextMeshProUGUI dayText; // UI Text for displaying current day
     public TextMeshProUGUI timerText; // UI Text for displaying remaining time
-    public TextMeshProUGUI summaryText; // UI Text for displaying end-of-day summary
+    public TextMeshProUGUI revenueText;
+    public TextMeshProUGUI orderCompleteText;
+    public TextMeshProUGUI summaryDayText;
     public GameObject summaryPanel; // A panel to show summary and wait for player input
     [SerializeField]private OrderManager orderManager;
+    [SerializeField]private GameManager gameManager;
 
     void Start()
     {
@@ -21,7 +25,7 @@ public class TimeManager : MonoBehaviour
         currentTime = dayDuration;
         isDayOver = false;
         UpdateDayText();
-        summaryText.gameObject.SetActive(false); // Hide the summary UI initially
+        summaryPanel.SetActive(false); // Hide the summary UI initially
     }
 
     void Update()
@@ -62,8 +66,10 @@ public class TimeManager : MonoBehaviour
 
     void ShowSummary()
     {
-        summaryText.text = $"Day {totalDays} Summary:\nEarnings: {CalculateEarnings()}";
-        summaryText.gameObject.SetActive(true); // Show the summary panel
+        summaryDayText.text = Convert.ToString(totalDays);
+        orderCompleteText.text = Convert.ToString(orderManager.orderCounter);
+        revenueText.text = Convert.ToString(gameManager.revenue);
+        summaryPanel.SetActive(true); // Show the summary panel
     }
 
     int CalculateEarnings()
@@ -78,7 +84,9 @@ public class TimeManager : MonoBehaviour
         totalDays++; // Increment the day count
         UpdateDayText(); // Update the UI for the new day
         currentTime = dayDuration; // Reset the day timer
-        summaryText.gameObject.SetActive(false); // Hide the summary panel
+        orderManager.orderCounter = 0;
+        gameManager.revenue = 0;
+        summaryPanel.SetActive(false); // Hide the summary panel
         Time.timeScale = 1f; // Resume the game
     }
 
