@@ -44,8 +44,7 @@ public class FriedEggManager : MonoBehaviour
         flips++;
         if (flips >= 5)
         {
-            sparkleSfx.Play();
-            dinnerBell.active_hit();
+            CompleteTask(1);
         }
     }
 
@@ -54,6 +53,7 @@ public class FriedEggManager : MonoBehaviour
         if (id == currentStage)
         {            
             
+            // Hard coded cases
             if (id == 0) 
             { 
                 sparkleSfx.Play();
@@ -61,10 +61,16 @@ public class FriedEggManager : MonoBehaviour
             }
             if (id == 1)
             {
+
+            }
+            if (id == 2)
+            {
                 StartCoroutine(FinishOrder());
                 Stage1();
+
             }
-            currentStage = (currentStage + 1) % 2;
+            currentStage = (currentStage + 1) % 3;
+            sparkleSfx.Play();
             return true;
         }
         return false;
@@ -84,10 +90,9 @@ public class FriedEggManager : MonoBehaviour
     IEnumerator FinishOrder()
     {
         flips = 0;
-        dinnerBell.deactive_hit();
         Transform eggToMove = friedEgg.transform;
         friedEgg = null;
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0);
         eggToMove.DOMove(exitLocation.position, eggMoveTime);
         orderManager.OrderFinished();
         orderManager.OrderUpdate();
@@ -96,7 +101,7 @@ public class FriedEggManager : MonoBehaviour
 
     IEnumerator Stage2Coroutine()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         Rigidbody rb = friedEgg.GetComponent<Rigidbody>();
 
         rb.angularVelocity = Vector3.zero;
