@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1529245102578316585}
   - component: {fileID: 7658570916333664294}
   - component: {fileID: 4151245051486192518}
+  - component: {fileID: 297450518258503829}
   m_Layer: 0
   m_Name: Pan
   m_TagString: Untagged
@@ -73,7 +74,7 @@ HingeJoint:
   m_ConnectedBody: {fileID: 0}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
-  m_Axis: {x: 0.025, y: 1, z: 0.025}
+  m_Axis: {x: 0.035, y: 1, z: 0.035}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0.61588454, y: 0, z: -0.020525634}
   serializedVersion: 2
@@ -210,7 +211,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26ff3dc15489d4581aa655bdcd85bc26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  launchForce: 250
+  launchForce: 300
+--- !u!114 &297450518258503829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5382567237006499141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42064fa6cc8fd417cba151b61e356847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alwaysGlows: 0
+  stepToGlow: 1
+  meshes:
+  - {fileID: 2893524291803123975}
 --- !u!1001 &3457806100164526485
 PrefabInstance:
   m_ObjectHideFlags: 0
