@@ -225,9 +225,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instructions:
-  - Shoot an egg
+  - Pull the trigger to shoot an egg
   - Flip the egg a few times
   - Ring the bell to finish the order!
+  thingsToUnhide:
+  - {fileID: 974617760926662945}
+  - {fileID: 0}
+  - {fileID: 5692522612550375796}
+  - {fileID: 3719160888059305861}
+  - {fileID: 3848633995693171285}
   instructionTextbox: {fileID: 2922692047342035667}
 --- !u!1 &1997887274851752189
 GameObject:
@@ -1151,8 +1157,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
