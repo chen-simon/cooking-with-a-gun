@@ -37,6 +37,6 @@ public class GameManager : MonoBehaviour
 
     public void UpdateMoeny()
     {
-        money.text = $"Money: ${totalEarnings}";
+        money.text = $"${totalEarnings}";
     }
 }

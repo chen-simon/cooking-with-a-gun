@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e7b8a6816824a85919ebe748335e59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 5
+  cooldown: 3.5
   launchForce: 750
   eggPrefab: {fileID: 512959532174081125, guid: a103ded7c2da145efa3c4a222966098e,
     type: 3}
@@ -1049,7 +1049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b064f6b22b2118c439bb92cf342791fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayDuration: 90
+  dayDuration: 120
   dayText: {fileID: 1976669979}
   timerText: {fileID: 1094283611}
   revenueText: {fileID: 428256467}
