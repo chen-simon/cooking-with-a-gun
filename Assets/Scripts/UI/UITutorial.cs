@@ -9,12 +9,18 @@ public class UITutorial : MonoBehaviour
     // Currently hardcoded only for Fried Egg !!
 
     public string[] instructions;
+    public GameObject[] thingsToUnhide;
 
     public TextMeshProUGUI instructionTextbox;
     
     // Start is called before the first frame update
     void Start()
     {
+        foreach (GameObject obj in thingsToUnhide)
+        {
+            obj.SetActive(false);
+        }
+
         if (FriedEggManager.main == null)
             Disable();
 
@@ -33,6 +39,10 @@ public class UITutorial : MonoBehaviour
 
     void Disable()
     {
+        foreach (GameObject obj in thingsToUnhide)
+        {
+            obj.SetActive(true);
+        }
         gameObject.SetActive(false);
     }
 }
