@@ -253,7 +253,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 578791434797503697}
   layerMask:
     serializedVersion: 2
-    m_Bits: 115
+    m_Bits: 499
   gunshotClip: {fileID: 84849063576714561}
 --- !u!1 &3976182438215752384
 GameObject:

@@ -15,7 +15,7 @@ public class FriedEggManager : MonoBehaviour
     public Transform exitLocation;
     [SerializeField]private OrderManager orderManager;
 
-    int currentStage;
+    public int currentStage;
 
     public int flips;
 

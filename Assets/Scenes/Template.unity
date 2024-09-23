@@ -1186,6 +1186,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gun Controller
       objectReference: {fileID: 0}
+    - target: {fileID: 4826061044541224234, guid: 8e1ded4ef3d7640e1826d445c3f76eac,
+        type: 3}
+      propertyPath: layerMask.m_Bits
+      value: 243
+      objectReference: {fileID: 0}
     - target: {fileID: 5228328366143849590, guid: 8e1ded4ef3d7640e1826d445c3f76eac,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1405,6 +1410,23 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 383306038454660714, guid: 439b2e4a2f5624c9a82b620aaf3df659,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 3116b3e6f57ae6f4cb69739fd92bcb16,
+        type: 2}
+    - target: {fileID: 383306038454660714, guid: 439b2e4a2f5624c9a82b620aaf3df659,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 1164887843301008359, guid: 3116b3e6f57ae6f4cb69739fd92bcb16,
+        type: 2}
+    - target: {fileID: 383306038454660714, guid: 439b2e4a2f5624c9a82b620aaf3df659,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 490281776279399148, guid: 439b2e4a2f5624c9a82b620aaf3df659,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1462,10 +1484,15 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3227504507293266233, guid: 439b2e4a2f5624c9a82b620aaf3df659,
+    - target: {fileID: 3199457182354158468, guid: 439b2e4a2f5624c9a82b620aaf3df659,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227504507293266233, guid: 439b2e4a2f5624c9a82b620aaf3df659,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3387505238837679053, guid: 439b2e4a2f5624c9a82b620aaf3df659,
         type: 3}
@@ -1518,6 +1545,33 @@ PrefabInstance:
         type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5465711599688566709, guid: 439b2e4a2f5624c9a82b620aaf3df659,
+        type: 3}
+      propertyPath: m_text
+      value: 'Recipe:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5465711599688566709, guid: 439b2e4a2f5624c9a82b620aaf3df659,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 3116b3e6f57ae6f4cb69739fd92bcb16,
+        type: 2}
+    - target: {fileID: 5465711599688566709, guid: 439b2e4a2f5624c9a82b620aaf3df659,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 1164887843301008359, guid: 3116b3e6f57ae6f4cb69739fd92bcb16,
+        type: 2}
+    - target: {fileID: 5465711599688566709, guid: 439b2e4a2f5624c9a82b620aaf3df659,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6322095837440912523, guid: 439b2e4a2f5624c9a82b620aaf3df659,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6689534058389177076, guid: 439b2e4a2f5624c9a82b620aaf3df659,
         type: 3}
@@ -1770,6 +1824,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 120916492766655550, guid: 3163d6bf77727ff4ea9e032f59304cde,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3139564303152511601, guid: 3163d6bf77727ff4ea9e032f59304cde,
         type: 3}
       propertyPath: recipeManager
@@ -1784,6 +1843,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dinner Bell
+      objectReference: {fileID: 0}
+    - target: {fileID: 3561120307350263721, guid: 3163d6bf77727ff4ea9e032f59304cde,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3982993592994001152, guid: 3163d6bf77727ff4ea9e032f59304cde,
         type: 3}
@@ -1834,6 +1898,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8764395035857967550, guid: 3163d6bf77727ff4ea9e032f59304cde,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 148214616598644863}
   - component: {fileID: 6080621069401924744}
   - component: {fileID: 634127916810607359}
+  - component: {fileID: 3789488892000031377}
   m_Layer: 0
   m_Name: Egg
   m_TagString: Untagged
@@ -77,6 +78,21 @@ MonoBehaviour:
     type: 3}
   eggInsidesPrefab: {fileID: 3026923539355572946, guid: 59dea227e589c4a33b0ca7e2ffe582a3,
     type: 3}
+--- !u!114 &3789488892000031377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512959532174081125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42064fa6cc8fd417cba151b61e356847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepToGlow: 0
+  meshes:
+  - {fileID: 6891349799065273382}
 --- !u!1001 &6008813387980732791
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu()]
+[CreateAssetMenu(menuName = "Cooking With a Gun/Ingredient")]
 public class IngredientSO : ScriptableObject
 {
     public GameObject prefab;

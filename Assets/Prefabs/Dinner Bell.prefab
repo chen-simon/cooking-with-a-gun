@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 537683595878092610}
   - component: {fileID: 4769448149832045823}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 4268365462226060462}
   - component: {fileID: 1247292009715768058}
   - component: {fileID: 3139564303152511601}
+  - component: {fileID: 4577483638101786193}
   m_Layer: 0
   m_Name: Dinner Bell
   m_TagString: Untagged
@@ -265,6 +266,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FriedEggManager: {fileID: 0}
+--- !u!114 &4577483638101786193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3561120307350263721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42064fa6cc8fd417cba151b61e356847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepToGlow: 2
+  meshes:
+  - {fileID: 8764395035857967550}
 --- !u!1001 &8457772231530898671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -276,17 +292,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6dfaef15f5844492d8f103f582351dc9,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6dfaef15f5844492d8f103f582351dc9,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6dfaef15f5844492d8f103f582351dc9,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6dfaef15f5844492d8f103f582351dc9,
         type: 3}
@@ -347,6 +363,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bell_RoughModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6dfaef15f5844492d8f103f582351dc9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
