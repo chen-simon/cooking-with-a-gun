@@ -7,6 +7,7 @@ public class Glow : MonoBehaviour
 
     // Currently hardcoded only for Fried Egg !!
 
+    public bool alwaysGlows;
     public int stepToGlow;
     int glowLayer = 7;
     int noGlowLayer = 0;
@@ -20,7 +21,7 @@ public class Glow : MonoBehaviour
         if (FriedEggManager.main == null)
             enabled = false;
 
-        if (OrderManager.Instance.orderCounter > 0)
+        if (!alwaysGlows && OrderManager.Instance.orderCounter > 0)
             enabled = false;
         
         if (meshes[0].layer == 6)
@@ -35,7 +36,7 @@ public class Glow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (OrderManager.Instance.orderCounter > 0)
+        if (!alwaysGlows && OrderManager.Instance.orderCounter > 0)
             enabled = false;
 
         

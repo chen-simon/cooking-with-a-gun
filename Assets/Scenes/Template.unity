@@ -660,6 +660,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &728851823 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2893524291803123975, guid: 830548ad0e75f4bbfad2d5e29a48e5b4,
+    type: 3}
+  m_PrefabInstance: {fileID: 4441442909238077191}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &810784930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1020,6 +1026,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1815652421 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5382567237006499141, guid: 830548ad0e75f4bbfad2d5e29a48e5b4,
+    type: 3}
+  m_PrefabInstance: {fileID: 4441442909238077191}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1815652426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815652421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42064fa6cc8fd417cba151b61e356847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alwaysGlows: 0
+  stepToGlow: 1
+  meshes:
+  - {fileID: 728851823}
 --- !u!1 &1843847883
 GameObject:
   m_ObjectHideFlags: 0
@@ -1185,11 +1213,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gun Controller
-      objectReference: {fileID: 0}
-    - target: {fileID: 4826061044541224234, guid: 8e1ded4ef3d7640e1826d445c3f76eac,
-        type: 3}
-      propertyPath: layerMask.m_Bits
-      value: 243
       objectReference: {fileID: 0}
     - target: {fileID: 5228328366143849590, guid: 8e1ded4ef3d7640e1826d445c3f76eac,
         type: 3}
@@ -1400,7 +1423,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5382567237006499141, guid: 830548ad0e75f4bbfad2d5e29a48e5b4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1815652426}
   m_SourcePrefab: {fileID: 100100000, guid: 830548ad0e75f4bbfad2d5e29a48e5b4, type: 3}
 --- !u!1001 &6174452045873446343
 PrefabInstance:
@@ -1502,22 +1529,22 @@ PrefabInstance:
     - target: {fileID: 3664482789348422101, guid: 439b2e4a2f5624c9a82b620aaf3df659,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3664482789348422101, guid: 439b2e4a2f5624c9a82b620aaf3df659,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3664482789348422101, guid: 439b2e4a2f5624c9a82b620aaf3df659,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 208.78998
       objectReference: {fileID: 0}
     - target: {fileID: 3664482789348422101, guid: 439b2e4a2f5624c9a82b620aaf3df659,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -77.264
       objectReference: {fileID: 0}
     - target: {fileID: 4218065926104052266, guid: 439b2e4a2f5624c9a82b620aaf3df659,
         type: 3}
@@ -1571,7 +1598,7 @@ PrefabInstance:
     - target: {fileID: 6322095837440912523, guid: 439b2e4a2f5624c9a82b620aaf3df659,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6689534058389177076, guid: 439b2e4a2f5624c9a82b620aaf3df659,
         type: 3}
@@ -1824,16 +1851,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 120916492766655550, guid: 3163d6bf77727ff4ea9e032f59304cde,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3139564303152511601, guid: 3163d6bf77727ff4ea9e032f59304cde,
-        type: 3}
-      propertyPath: recipeManager
-      value: 
-      objectReference: {fileID: 258215416}
     - target: {fileID: 3139564303152511601, guid: 3163d6bf77727ff4ea9e032f59304cde,
         type: 3}
       propertyPath: FriedEggManager
@@ -1843,11 +1860,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dinner Bell
-      objectReference: {fileID: 0}
-    - target: {fileID: 3561120307350263721, guid: 3163d6bf77727ff4ea9e032f59304cde,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3982993592994001152, guid: 3163d6bf77727ff4ea9e032f59304cde,
         type: 3}
@@ -1899,10 +1911,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8764395035857967550, guid: 3163d6bf77727ff4ea9e032f59304cde,
+    - target: {fileID: 4577483638101786193, guid: 3163d6bf77727ff4ea9e032f59304cde,
         type: 3}
-      propertyPath: m_Layer
-      value: 7
+      propertyPath: alwaysGlows
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
