@@ -15,5 +15,3 @@ MonoBehaviour:
   recipeListName: Day1
   recipeSOList:
   - {fileID: 11400000, guid: 5458ee5581e90de49b11a1e2cf0e6461, type: 2}
-  - {fileID: 11400000, guid: c2662d59d02a91647ba6442746ac77a9, type: 2}
-  - {fileID: 11400000, guid: 2a62aab6429622d4597625bfdfd84e93, type: 2}
