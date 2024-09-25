@@ -134,24 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &188856141 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7780328811320210846, guid: ea1dcc5643f434284a461000972f630c,
-    type: 3}
-  m_PrefabInstance: {fileID: 72461403016991274}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &188856144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 188856141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cce47d9bd349b42b0bc174569d03ef75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &192455562 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 84849063576714561, guid: 8e1ded4ef3d7640e1826d445c3f76eac,
@@ -1109,6 +1091,16 @@ PrefabInstance:
       propertyPath: gunshot_clip
       value: 
       objectReference: {fileID: 192455562}
+    - target: {fileID: 2919929814622240989, guid: ea1dcc5643f434284a461000972f630c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877212539958599064, guid: ea1dcc5643f434284a461000972f630c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7780328811320210846, guid: ea1dcc5643f434284a461000972f630c,
         type: 3}
       propertyPath: m_Name
@@ -1167,11 +1159,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7780328811320210846, guid: ea1dcc5643f434284a461000972f630c,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 188856144}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea1dcc5643f434284a461000972f630c, type: 3}
 --- !u!1001 &1071148880862777581
 PrefabInstance:
@@ -1415,6 +1403,26 @@ PrefabInstance:
       propertyPath: thingsToUnhide.Array.data[1]
       value: 
       objectReference: {fileID: 1843847883}
+    - target: {fileID: 3664482789348422101, guid: 439b2e4a2f5624c9a82b620aaf3df659,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3664482789348422101, guid: 439b2e4a2f5624c9a82b620aaf3df659,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3664482789348422101, guid: 439b2e4a2f5624c9a82b620aaf3df659,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3664482789348422101, guid: 439b2e4a2f5624c9a82b620aaf3df659,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8516152657611992831, guid: 439b2e4a2f5624c9a82b620aaf3df659,
         type: 3}
       propertyPath: m_Pivot.x

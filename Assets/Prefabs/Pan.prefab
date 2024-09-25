@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42064fa6cc8fd417cba151b61e356847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alwaysGlows: 0
+  alwaysGlows: 1
   stepToGlow: 1
   meshes:
   - {fileID: 2893524291803123975}
