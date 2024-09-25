@@ -134,12 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &192455562 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 84849063576714561, guid: 8e1ded4ef3d7640e1826d445c3f76eac,
-    type: 3}
-  m_PrefabInstance: {fileID: 1071148880862777581}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &258215416 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5851069530481430587, guid: 9d7f7d8156a364032b4fc36713464fb1,
@@ -1081,26 +1075,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1559772956700649311, guid: ea1dcc5643f434284a461000972f630c,
-        type: 3}
-      propertyPath: e
-      value: 1080
-      objectReference: {fileID: 0}
-    - target: {fileID: 2803672196930328280, guid: ea1dcc5643f434284a461000972f630c,
-        type: 3}
-      propertyPath: gunshot_clip
-      value: 
-      objectReference: {fileID: 192455562}
-    - target: {fileID: 2919929814622240989, guid: ea1dcc5643f434284a461000972f630c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877212539958599064, guid: ea1dcc5643f434284a461000972f630c,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7780328811320210846, guid: ea1dcc5643f434284a461000972f630c,
         type: 3}
       propertyPath: m_Name
