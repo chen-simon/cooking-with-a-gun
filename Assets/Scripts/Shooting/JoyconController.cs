@@ -24,7 +24,7 @@ public class JoyconController : MonoBehaviour {
     {
         gyro = new Vector3(0, 0, 0);
         accel = new Vector3(0, 0, 0);
-        aim_offset = Quaternion.identity;
+        aim_offset = Quaternion.Euler(90, 120, 120);
         // get the public Joycon array attached to the JoyconManager in scene
         joycons = JoyconManager.Instance.j;
 		if (joycons.Count < jc_ind+1){
@@ -34,7 +34,7 @@ public class JoyconController : MonoBehaviour {
 		gameObject.transform.rotation = orientation;
 	}
 
-    // Update is called once per frame
+	// Update is called once per frame
     void Update () {
 		// make sure the Joycon only gets checked if attached
 		if (joycons.Count > 0)
@@ -108,17 +108,19 @@ public class JoyconController : MonoBehaviour {
 				gameObject.GetComponent<Renderer>().material.color = Color.blue;
 			}
 
-            Quaternion desiredRot = orientation;
-            
-            // Map orientation to screen pointer movement
-            UpdatePointerPosition(orientation);
-            
+			Quaternion desiredRotation = aim_offset * orientation;
+
             if (j.GetButtonDown(Joycon.Button.DPAD_RIGHT))
-			{
-				aim_offset = Quaternion.Inverse(desiredRot);
-			}
+            {
+				// Only recenters on the y axis
+				aim_offset = Quaternion.RotateTowards(gameObject.transform.rotation, Quaternion.Euler(90, 120, 120), 180);
+			}			
 			
-			gameObject.transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, aim_offset * desiredRot, 20f * Time.deltaTime);
+			// Smoothly interpolate the object's rotation to the desired rotation
+            gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, desiredRotation, 20f * Time.deltaTime);
+	    	
+            // Map orientation to screen pointer movement
+			UpdatePointerPosition(orientation, transform.rotation);
 			
 			// https://github.com/Looking-Glass/JoyconLib/issues/8
 			// gameObject.transform.Rotate(90,0,0,Space.World); 
@@ -128,7 +130,7 @@ public class JoyconController : MonoBehaviour {
     }
     
     // Method to map the Joycon orientation to the pointer's position on the screen
-    void UpdatePointerPosition(Quaternion joyconOrientation)
+    void UpdatePointerPosition(Quaternion joyconOrientation, Quaternion rotation)
     {
 	    // Convert the orientation to a forward vector (direction the Joycon is pointing)
 	    // Rotate the entire joycon orientation by 90 degrees to match the orientation of the gun model
@@ -144,9 +146,8 @@ public class JoyconController : MonoBehaviour {
 		float DEG_TO_RAD = 0.017453329252f;
 
 	    // Assuming you want to move the pointer in 2D space (x and y coordinates of the screen)
-	    float newX = Mathf.Sin(transform.rotation.eulerAngles.y * DEG_TO_RAD) * pointerSensitivity;
-	    float newY = Mathf.Sin(transform.rotation.eulerAngles.x * DEG_TO_RAD) * -pointerSensitivity;
-	    
+	    float newX = Mathf.Sin(rotation.eulerAngles.y * DEG_TO_RAD) * pointerSensitivity;
+	    float newY = Mathf.Sin(rotation.eulerAngles.x * DEG_TO_RAD) * -pointerSensitivity;
 	    
 	    // Set the pointer's anchored position (used for UI elements in Canvas)
 	    GunController.main.UpdateCrosshairPostiton(new Vector2(newX, newY));
