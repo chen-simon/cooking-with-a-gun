@@ -13,6 +13,10 @@ public class GunController : MonoBehaviour
     public Gun currentGun;
     public MuzzleFlash muzzleFlash;
 
+    // Used for screen shake upon shooting
+    public float screenShakeMagnitude = 0.1f;
+    public float screenShakeDuration = 0.1f;
+
     bool inCooldown;
 
     Vector3 rayDirection;
@@ -37,6 +41,7 @@ public class GunController : MonoBehaviour
     {
         if (inCooldown) return;
 
+        CameraController.main.Shake(screenShakeDuration, screenShakeMagnitude);
         gunshotClip.Play();
         muzzleFlash.Flash();
 
@@ -46,7 +51,6 @@ public class GunController : MonoBehaviour
             ShootEffect(hit);
         }
         StartCoroutine(Cooldown());
-        
     }
 
     void ShootEffect(RaycastHit hit)
@@ -55,7 +59,7 @@ public class GunController : MonoBehaviour
         if (rb == null) return;
 
         Vector3 knockbackForce = -hit.normal * Mathf.Abs(Vector3.Dot(hit.normal, rayDirection)) * currentGun.knockbackForce;
-
+                
         rb.AddForce(knockbackForce);
 
         AudioSource audioSource = rb.GetComponent<AudioSource>();
@@ -65,7 +69,7 @@ public class GunController : MonoBehaviour
         IShootable shootable = rb.GetComponent<IShootable>();
         if (shootable != null)
             shootable.TakeShot(knockbackForce);
-
+        
     }
 
     public void UpdateCrosshairPostiton(Vector2 screenPosition)
