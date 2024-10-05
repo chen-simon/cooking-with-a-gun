@@ -49,6 +49,11 @@ public class GunController : MonoBehaviour
         if (Physics.Raycast(Camera.main.transform.position, rayDirection, out hit, Mathf.Infinity, layerMask))
         {
             ShootEffect(hit);
+            if (hit.collider.tag == "Level")
+            {
+                Debug.Log(hit.point);
+                BulletHoleManager.main.CreateBulletHole(hit.point, Quaternion.LookRotation(hit.normal));
+            }
         }
         StartCoroutine(Cooldown());
     }
