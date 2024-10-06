@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -7,6 +8,7 @@ public class CameraController : MonoBehaviour
     // Singleton object
 
     public static CameraController main;
+    public CinemachineVirtualCamera virtualCamera;
     
     private void Awake()
     {
@@ -22,24 +24,10 @@ public class CameraController : MonoBehaviour
     
     IEnumerator ShakeCoroutine(float duration, float magnitude)
     {
-        // move the camera forwards and backwards
-        Vector3 originalPosition = transform.localPosition;
-        float elapsed = 0f;
-        
-        while (elapsed < duration)
-        {
-            float z = Random.Range(-1f, 1f) * magnitude;
-            float x = Random.Range(-1f, 1f) * magnitude;
-            float y = Random.Range(-1f, 1f) * magnitude;
-
-            transform.localPosition =
-                new Vector3(originalPosition.x + x, originalPosition.y + y, originalPosition.z + z);
-            
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
-        
-        transform.localPosition = originalPosition;
+        // move the camera forwards and backward
+        CinemachineBasicMultiChannelPerlin perlin = virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        perlin.m_AmplitudeGain = magnitude;
+        yield return new WaitForSeconds(duration);
+        perlin.m_AmplitudeGain = 0;
     }
-    
 }
