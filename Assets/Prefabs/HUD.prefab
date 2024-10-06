@@ -226,7 +226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instructions:
   - Pull the trigger to shoot an egg
-  - Flip the egg a few times
+  - Shoot the handle to flip the egg a few times
   - Ring the bell to finish the order!
   thingsToUnhide:
   - {fileID: 974617760926662945}
