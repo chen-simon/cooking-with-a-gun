@@ -267,6 +267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 133343126323661285}
   - component: {fileID: 3156179315641759486}
+  - component: {fileID: 2205444948005177133}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -329,6 +330,19 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 8572019320858923713}
+--- !u!114 &2205444948005177133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3976182438215752384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35da9874410da254da998fc4c4dda399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  virtualCamera: {fileID: 3156179315641759486}
 --- !u!1 &4611821229190008637
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,7 +453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 10
+  m_AmplitudeGain: 0
   m_FrequencyGain: 1
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &6205650082721205802
