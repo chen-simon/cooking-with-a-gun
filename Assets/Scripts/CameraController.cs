@@ -18,7 +18,6 @@ public class CameraController : MonoBehaviour
 
     public void Shake(float duration, float magnitude)
     {
-        Debug.Log("Shaking Camera");
         StartCoroutine(ShakeCoroutine(duration, magnitude));    
     }
     
