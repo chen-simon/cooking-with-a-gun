@@ -7,8 +7,8 @@ public class Customer : MonoBehaviour
 {
     public Recipe recipe;
     public Transform standPostiton;
-
-    [SerializeField] Transform exitPosition;
+    public Transform exitPosition;
+    
     [SerializeField] float walkSpeed;
 
     // Start is called before the first frame update
