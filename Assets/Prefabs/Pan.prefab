@@ -224,10 +224,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42064fa6cc8fd417cba151b61e356847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alwaysGlows: 1
   stepToGlow: 1
-  meshes:
-  - {fileID: 2893524291803123975}
+  bright: {r: 0.5048237, g: 1, b: 0.3160377, a: 1}
+  dark: {r: 0.16222702, g: 0.764151, b: 0.046858337, a: 1}
+  minWidth: 5
+  maxWidth: 8
+  frequency: 8
+  outline: {fileID: 1400217701333058347}
 --- !u!1001 &3457806100164526485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -339,6 +342,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7071991091181888391}
+    - targetCorrespondingSourceObject: {fileID: 566122390877098130, guid: 225d74cfec04c41a3ab7e4cef235d15e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1400217701333058347}
   m_SourcePrefab: {fileID: 100100000, guid: 225d74cfec04c41a3ab7e4cef235d15e, type: 3}
 --- !u!1 &2893524291803123975 stripped
 GameObject:
@@ -368,6 +375,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -96273222888926141, guid: 225d74cfec04c41a3ab7e4cef235d15e, type: 3}
+--- !u!114 &1400217701333058347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2893524291803123975}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!4 &2915554292649764478 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 225d74cfec04c41a3ab7e4cef235d15e,
