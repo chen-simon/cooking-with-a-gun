@@ -17,7 +17,7 @@ MonoBehaviour:
   ammoCapacity: 15
   reloadTime: 3
   spread: 0
-  knockbackForce: 500
+  knockbackForce: 450
   rumbleMagnitude: 0.6
   rumbleTime: 75
   screenShakeMagnitude: 1.6

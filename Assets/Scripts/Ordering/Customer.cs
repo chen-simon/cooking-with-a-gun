@@ -8,8 +8,10 @@ public class Customer : MonoBehaviour
     public Recipe recipe;
     public Transform standPostiton;
     public Transform exitPosition;
-    
+
     [SerializeField] float walkSpeed;
+    [SerializeField] float leaveDelay;
+    [SerializeField] GameObject OrderUI;
 
     // Start is called before the first frame update
     void Start()
@@ -23,13 +25,27 @@ public class Customer : MonoBehaviour
         
     }
 
-    void WalkIn()
+    public void WalkIn()
     {
         transform.DOMove(standPostiton.position, walkSpeed);
+        StartCoroutine(WalkInCoroutine());
     }
 
-    void WalkOut()
+    public void WalkOut()
     {
+        StartCoroutine(WalkOutCoroutine());
+    }
+
+    IEnumerator WalkInCoroutine()
+    {
+        yield return new WaitForSeconds(walkSpeed);
+        OrderUI.SetActive(true);
+    }
+
+    IEnumerator WalkOutCoroutine()
+    {
+        yield return new WaitForSeconds(leaveDelay);
         transform.DOMove(exitPosition.position, walkSpeed);
+        OrderUI.SetActive(false);
     }
 }

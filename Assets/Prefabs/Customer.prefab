@@ -99,6 +99,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recipe: {fileID: 11400000, guid: 5458ee5581e90de49b11a1e2cf0e6461, type: 2}
+  standPostiton: {fileID: 0}
+  exitPosition: {fileID: 0}
+  walkSpeed: 2
+  leaveDelay: 1
+  OrderUI: {fileID: 1423292096674132585}
 --- !u!1001 &8960609774970614526
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -167,11 +172,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Order Info UI
       objectReference: {fileID: 0}
+    - target: {fileID: 8042012228949754007, guid: 2ad08d364cdbf4d24b23963638ce0cad,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ad08d364cdbf4d24b23963638ce0cad, type: 3}
+--- !u!1 &1423292096674132585 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8042012228949754007, guid: 2ad08d364cdbf4d24b23963638ce0cad,
+    type: 3}
+  m_PrefabInstance: {fileID: 8960609774970614526}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9127898023432320688 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 213558115288237134, guid: 2ad08d364cdbf4d24b23963638ce0cad,
