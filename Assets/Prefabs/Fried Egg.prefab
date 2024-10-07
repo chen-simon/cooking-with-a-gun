@@ -73,6 +73,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7695038661740834143, guid: 9f82181b291cf4de8b496d973b220211,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -4957720377744149470, guid: 9f82181b291cf4de8b496d973b220211,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: -2265094378518350788, guid: 9f82181b291cf4de8b496d973b220211,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -82,6 +92,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fried Egg
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9f82181b291cf4de8b496d973b220211,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050550168103687779, guid: 9f82181b291cf4de8b496d973b220211,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4221069341985761098, guid: 9f82181b291cf4de8b496d973b220211,
         type: 3}
