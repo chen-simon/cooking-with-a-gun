@@ -999,7 +999,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletHolePrefab: {fileID: 3695289527651622195, guid: d06f4cf8c30c2b247b71e4a4bcf9294a,
     type: 3}
-  maxBulletHoles: 10
+  maxBulletHoles: 100
 --- !u!4 &1195123552
 Transform:
   m_ObjectHideFlags: 0
@@ -1350,8 +1350,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.916201, y: 2.9919887, z: 0.8232416}
-  m_Center: {x: -0.00000047683716, y: -0.44664633, z: 0.2526393}
+  m_Size: {x: 4.916201, y: 2.9919887, z: 0.61736137}
+  m_Center: {x: -0.00000047683716, y: -0.44664633, z: 0.14969918}
 --- !u!4 &1524349282 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7569466129960816494, guid: 830548ad0e75f4bbfad2d5e29a48e5b4,

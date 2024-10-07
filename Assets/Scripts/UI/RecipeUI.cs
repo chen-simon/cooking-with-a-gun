@@ -12,14 +12,14 @@ public class RecipeUI : MonoBehaviour
     void Awake() {
     iconTemplete.gameObject.SetActive(false);
     }
-    public void UpdateUI( RecipeSO recipeSO)
+    public void UpdateUI(Recipe recipe)
     {
-        RecipeNameText.text = recipeSO.recipeName + $" ${recipeSO.price}";
-        foreach(IngredientSO ingredientSO in recipeSO.IngredientSOList)
+        RecipeNameText.text = recipe.recipeName + $" ${recipe.price}";
+        foreach(Ingredient ingredient in recipe.ingredientList)
         {
             Image newIcon = GameObject.Instantiate(iconTemplete);
             newIcon.transform.SetParent(StepParent, false);
-            newIcon.sprite = ingredientSO.sprite;
+            newIcon.sprite = ingredient.sprite;
             newIcon.gameObject.SetActive(true);
         }
 

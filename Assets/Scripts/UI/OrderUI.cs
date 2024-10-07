@@ -10,8 +10,8 @@ public class OrderUI : MonoBehaviour
     void Start()
     {
         recipeUItemplete.gameObject.SetActive(false);
-        OrderManager.Instance.OnRecipeSpwaned += OrderManager_OnRecipeSpawned;
-        OrderManager.Instance.OnRecipeFinished += OrderManager_OnRecipeFinished;
+        OrderManager.main.OnRecipeSpwaned += OrderManager_OnRecipeSpawned;
+        OrderManager.main.OnRecipeFinished += OrderManager_OnRecipeFinished;
     }
     private void OrderManager_OnRecipeSpawned(object sender, System.EventArgs e){
         UpdateUI();
@@ -28,7 +28,7 @@ public class OrderUI : MonoBehaviour
                 Destroy(child.gameObject);
             }
         }
-        RecipeSO currentRecipe = OrderManager.Instance.getCurrentRecipe();
+        Recipe currentRecipe = OrderManager.main.getCurrentRecipe();
         RecipeUI recipeUI = GameObject.Instantiate(recipeUItemplete);
         recipeUI.transform.SetParent(recipeParent, false);
         recipeUI.gameObject.SetActive(true);

@@ -51,7 +51,6 @@ public class GunController : MonoBehaviour
             ShootEffect(hit);
             if (hit.collider.tag == "Level")
             {
-                Debug.Log(hit.point);
                 BulletHoleManager.main.CreateBulletHole(hit.point, Quaternion.LookRotation(hit.normal));
             }
         }

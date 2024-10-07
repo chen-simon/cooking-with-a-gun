@@ -21,7 +21,7 @@ public class Glow : MonoBehaviour
         if (FriedEggManager.main == null)
             enabled = false;
 
-        if (!alwaysGlows && OrderManager.Instance.orderCounter > 0)
+        if (!alwaysGlows && OrderManager.main.orderCounter > 0)
             enabled = false;
         
         if (meshes[0].layer == 6)
@@ -36,7 +36,7 @@ public class Glow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!alwaysGlows && OrderManager.Instance.orderCounter > 0)
+        if (!alwaysGlows && OrderManager.main.orderCounter > 0)
             enabled = false;
 
         
