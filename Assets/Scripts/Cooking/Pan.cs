@@ -30,5 +30,8 @@ public class Pan : MonoBehaviour, IShootable
                                             Random.Range(-10f, 10f));
         
         FriedEggManager.main.Flip();
+
+        AudioSource eggAudio = FriedEggManager.main.friedEgg.GetComponent<AudioSource>();
+        eggAudio.Play();
     }
 }

@@ -41,7 +41,9 @@ public class GunController : MonoBehaviour
     {
         if (inCooldown) return;
 
-        CameraController.main.Shake(screenShakeDuration, screenShakeMagnitude);
+        CameraController.main.Shake(
+            currentGun.screenShakeDuration,
+            currentGun.screenShakeMagnitude);
         gunshotClip.Play();
         muzzleFlash.Flash();
 
@@ -51,7 +53,6 @@ public class GunController : MonoBehaviour
             ShootEffect(hit);
             if (hit.collider.tag == "Level")
             {
-                Debug.Log(hit.point);
                 BulletHoleManager.main.CreateBulletHole(hit.point, Quaternion.LookRotation(hit.normal));
             }
         }

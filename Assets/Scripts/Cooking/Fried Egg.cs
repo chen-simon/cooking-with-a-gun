@@ -16,6 +16,7 @@ public class FriedEgg : MonoBehaviour
         {
             rb.useGravity = false;
             rb.drag = 2f;
+            rb.detectCollisions = false;
 
             FriedEggManager.main.friedEgg = this;
         }

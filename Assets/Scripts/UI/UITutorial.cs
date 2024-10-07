@@ -24,14 +24,14 @@ public class UITutorial : MonoBehaviour
         if (FriedEggManager.main == null)
             Disable();
 
-        if (OrderManager.Instance.orderCounter > 0)
+        if (OrderManager.main.orderCounter > 0)
             Disable();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (OrderManager.Instance.orderCounter > 0)
+        if (OrderManager.main.orderCounter > 0)
             Disable();
 
         instructionTextbox.text = instructions[FriedEggManager.main.currentStage];

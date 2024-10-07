@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d2b64ca4d36d4b188b7644cacee2fcb, type: 3}
+  m_Name: M9
+  m_EditorClassIdentifier: 
+  name: M9 Beretta
+  isAuto: 0
+  ammoCapacity: 15
+  reloadTime: 3
+  spread: 0
+  knockbackForce: 450
+  rumbleMagnitude: 0.6
+  rumbleTime: 75
+  screenShakeMagnitude: 1.6
+  screenShakeDuration: 0.1
+  firerate: 8
