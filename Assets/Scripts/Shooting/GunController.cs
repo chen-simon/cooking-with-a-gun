@@ -41,7 +41,9 @@ public class GunController : MonoBehaviour
     {
         if (inCooldown) return;
 
-        CameraController.main.Shake(screenShakeDuration, screenShakeMagnitude);
+        CameraController.main.Shake(
+            currentGun.screenShakeDuration,
+            currentGun.screenShakeMagnitude);
         gunshotClip.Play();
         muzzleFlash.Flash();
 

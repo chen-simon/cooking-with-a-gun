@@ -14,6 +14,8 @@ public class Gun : ScriptableObject
     public float knockbackForce;
     public float rumbleMagnitude;
     public int rumbleTime;  // in milliseconds
+    public float screenShakeMagnitude;
+    public float screenShakeDuration;  // in seconds
 
     public float firerate;
 
