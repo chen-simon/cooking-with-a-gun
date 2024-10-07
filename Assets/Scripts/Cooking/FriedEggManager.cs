@@ -109,5 +109,7 @@ public class FriedEggManager : MonoBehaviour
         friedEgg.transform.DORotate(Vector3.zero, eggMoveTime);
 
         rb.useGravity = true;
+        rb.detectCollisions = true;
+
     }
 }
