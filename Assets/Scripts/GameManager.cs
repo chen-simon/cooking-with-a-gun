@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]private OrderManager orderManager;
     [SerializeField]private TextMeshProUGUI money;
 
+    [SerializeField] AudioSource moneySound;
+
     private int totalEarnings = 0;
     public int revenue = 0;
     void Start()
@@ -34,6 +36,7 @@ public class GameManager : MonoBehaviour
     {
         totalEarnings += recipe.price;
         revenue += recipe.price;
+        moneySound.Play();
     }
 
     public void UpdateMoeny()
