@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField]private OrderManager orderManager;
     [SerializeField]private TextMeshProUGUI money;
+
+    [SerializeField] AudioSource moneySound;
+
     private int totalEarnings = 0;
     public int revenue = 0;
     void Start()
@@ -29,10 +32,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void CalculateEarnings(RecipeSO recipeSO)
+    public void CalculateEarnings(Recipe recipe)
     {
-        totalEarnings += recipeSO.price;
-        revenue += recipeSO.price;
+        totalEarnings += recipe.price;
+        revenue += recipe.price;
+        moneySound.Play();
     }
 
     public void UpdateMoeny()

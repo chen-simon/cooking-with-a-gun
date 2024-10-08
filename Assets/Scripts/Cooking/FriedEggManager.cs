@@ -108,6 +108,7 @@ public class FriedEggManager : MonoBehaviour
         friedEgg.transform.DORotate(Vector3.zero, eggMoveTime);
 
         rb.useGravity = true;
-        rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
+        rb.detectCollisions = true;
+
     }
 }
