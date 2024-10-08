@@ -49,7 +49,7 @@ public class GunController : MonoBehaviour
     public void Shoot()
     {
         if (inCooldown) return;
-
+        if (isReloading) return;
         if (ammo <= 0)
         {
             Reload();
