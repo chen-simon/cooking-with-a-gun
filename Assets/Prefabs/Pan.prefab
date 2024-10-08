@@ -232,8 +232,8 @@ MonoBehaviour:
   stepToGlow: 1
   bright: {r: 0.5048237, g: 1, b: 0.3160377, a: 1}
   dark: {r: 0.16222702, g: 0.764151, b: 0.046858337, a: 1}
-  minWidth: 5
-  maxWidth: 8
+  minWidth: 8
+  maxWidth: 12
   frequency: 8
   outline: {fileID: 1400217701333058347}
 --- !u!1001 &675957935987446818
