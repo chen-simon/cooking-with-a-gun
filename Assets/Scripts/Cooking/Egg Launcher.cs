@@ -9,6 +9,7 @@ public class EggLauncher : MonoBehaviour
 
     public GameObject eggPrefab;
     public GameObject egg;
+    public bool active = false;
 
     // Start is called before the first frame update
     void Start()
@@ -21,19 +22,9 @@ public class EggLauncher : MonoBehaviour
         
     }
 
-    // public void StartLaunching()
-    // {
-    //     StartCoroutine(LaunchEgg());
-    // }
-
-    // public void StopLaunching()
-    // {
-    //     StopAllCoroutines();
-    // }
-
     public void LaunchEgg()
     {
-        if(egg == null){
+        if(egg == null && active){
         egg = Instantiate(eggPrefab, transform.position, Quaternion.identity);
         
         Rigidbody rb = egg.GetComponent<Rigidbody>();
@@ -45,6 +36,8 @@ public class EggLauncher : MonoBehaviour
 
         // Add force to launch the egg forward
         rb.AddForce(launchForce * transform.forward);
+        Egg eggScript = egg.GetComponent<Egg>();
+            eggScript.Initialize(this);
         }
     }
     public void OnEggDestroyed()

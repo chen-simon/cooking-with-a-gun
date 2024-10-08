@@ -7,8 +7,11 @@ public class Egg : MonoBehaviour, IShootable
     public GameObject eggShellPrefab;
     public GameObject eggInsidesPrefab;
     public float destroy_y = -1f;
-    [SerializeField]EggLauncher eggLauncher;
-    // Start is called before the first frame update
+    private EggLauncher eggLauncher;
+    public void Initialize(EggLauncher launcher)
+    {
+        eggLauncher = launcher; // Store reference to the launcher
+    }
     void Start()
     {
         
@@ -20,7 +23,6 @@ public class Egg : MonoBehaviour, IShootable
         if (transform.position.y < destroy_y)
         {
             Destroy(gameObject);
-            eggLauncher.OnEggDestroyed();
         }
     }
 
@@ -43,5 +45,14 @@ public class Egg : MonoBehaviour, IShootable
         eggInsides.GetComponent<Rigidbody>().AddForce(knockbackForce);
 
         Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        // Notify the EggLauncher that the egg is destroyed
+        if (eggLauncher != null)
+        {
+            eggLauncher.OnEggDestroyed();
+        }
     }
 }
