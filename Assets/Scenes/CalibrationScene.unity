@@ -297,7 +297,6 @@ GameObject:
   - component: {fileID: 179310166}
   - component: {fileID: 179310165}
   - component: {fileID: 179310164}
-  - component: {fileID: 179310168}
   m_Layer: 5
   m_Name: CalibrationCanvas
   m_TagString: Untagged
@@ -384,29 +383,13 @@ RectTransform:
   - {fileID: 374609376}
   - {fileID: 28082545}
   - {fileID: 688764853}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 809221722}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &179310168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179310163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 716493464af3c43978b6ee1b18be5393, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  calibrationPanel: {fileID: 179310163}
-  instructionText: {fileID: 374609377}
-  triangleTemplate: {fileID: 688764851}
-  triangleParent: {fileID: 28082545}
 --- !u!114 &185828029 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3089310955136233046, guid: 439b2e4a2f5624c9a82b620aaf3df659,
@@ -1129,9 +1112,58 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1087, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &809221720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 809221722}
+  - component: {fileID: 809221721}
+  m_Layer: 0
+  m_Name: CalibrationManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &809221721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809221720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716493464af3c43978b6ee1b18be5393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  calibrationPanel: {fileID: 179310163}
+  instructionText: {fileID: 374609377}
+  triangleTemplate: {fileID: 688764851}
+  triangleParent: {fileID: 28082545}
+--- !u!4 &809221722
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809221720}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 735.5, y: 375, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 179310167}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &810784930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1462,7 +1494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.10840159, g: 0.44368502, b: 0.7924528, a: 0.87058824}
+  m_Color: {r: 0.29966182, g: 0.41405675, b: 0.6981132, a: 0.89411765}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2509,4 +2541,4 @@ SceneRoots:
   - {fileID: 1372456685}
   - {fileID: 1229080427}
   - {fileID: 1195123552}
-  - {fileID: 179310167}
+  - {fileID: 809221722}
