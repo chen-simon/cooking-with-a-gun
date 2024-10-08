@@ -15,7 +15,7 @@ MonoBehaviour:
   name: M9 Beretta
   isAuto: 0
   ammoCapacity: 15
-  reloadTime: 2
+  reloadTime: 1.5
   spread: 0
   knockbackForce: 450
   rumbleMagnitude: 0.6
