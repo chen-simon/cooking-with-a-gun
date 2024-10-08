@@ -42,7 +42,6 @@ public class OrderManager : MonoBehaviour
     {
         OnRecipeFinished?.Invoke(this, EventArgs.Empty);  
         gameManager.CalculateEarnings(currentRecipe);
-        gameManager.UpdateMoeny();
         orderCounter++;
     }
 
