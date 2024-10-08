@@ -26,6 +26,7 @@ public class GunController : MonoBehaviour
     public LayerMask layerMask;
 
     [SerializeField] AudioSource gunshotClip;
+    [SerializeField] AudioSource reloadAudio;
     
     void Awake()
     {
@@ -126,6 +127,7 @@ public class GunController : MonoBehaviour
 
     IEnumerator ReloadCoroutine()
     {
+        reloadAudio.Play();
         yield return new WaitForSeconds(currentGun.reloadTime);
         ammo = currentGun.ammoCapacity;
     }
