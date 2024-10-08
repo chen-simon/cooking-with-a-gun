@@ -6,7 +6,8 @@ public class Egg : MonoBehaviour, IShootable
 {
     public GameObject eggShellPrefab;
     public GameObject eggInsidesPrefab;
-
+    public float destroy_y = -1f;
+    [SerializeField]EggLauncher eggLauncher;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,11 @@ public class Egg : MonoBehaviour, IShootable
     // Update is called once per frame
     void Update()
     {
-        
+        if (transform.position.y < destroy_y)
+        {
+            Destroy(gameObject);
+            eggLauncher.OnEggDestroyed();
+        }
     }
 
     public void TakeShot(Vector3 knockbackForce)

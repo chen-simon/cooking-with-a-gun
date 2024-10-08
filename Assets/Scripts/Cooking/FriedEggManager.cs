@@ -78,12 +78,12 @@ public class FriedEggManager : MonoBehaviour
 
     void Stage1()
     {
-        launcher.StartLaunching();
+        // launcher.StartLaunching();
     }
 
     void Stage2()
     {
-        launcher.StopLaunching();
+        // launcher.StopLaunching();
         StartCoroutine(Stage2Coroutine());
     }
 
