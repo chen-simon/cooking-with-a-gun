@@ -79,6 +79,7 @@ MonoBehaviour:
     type: 3}
   eggInsidesPrefab: {fileID: 3026923539355572946, guid: 59dea227e589c4a33b0ca7e2ffe582a3,
     type: 3}
+  destroy_y: -2
 --- !u!114 &3789488892000031377
 MonoBehaviour:
   m_ObjectHideFlags: 0

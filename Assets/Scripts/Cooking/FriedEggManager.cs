@@ -77,12 +77,10 @@ public class FriedEggManager : MonoBehaviour
 
     void Stage1()
     {
-        launcher.active = true;
     }
 
     void Stage2()
     {
-        launcher.active = false;
         StartCoroutine(Stage2Coroutine());
     }
 
