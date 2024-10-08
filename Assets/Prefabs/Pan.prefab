@@ -35,6 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3338928079871841307}
+  - {fileID: 3872347504628572855}
   - {fileID: 2915554292649764478}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -215,6 +216,7 @@ MonoBehaviour:
   launchForce: 200
   angularVelocityAmount: 60
   oilSplatter: {fileID: 7298770459955129152}
+  steamSplatter: {fileID: 9124688652422241772}
 --- !u!114 &297450518258503829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,6 +236,111 @@ MonoBehaviour:
   maxWidth: 8
   frequency: 8
   outline: {fileID: 1400217701333058347}
+--- !u!1001 &675957935987446818
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7569466129960816494}
+    m_Modifications:
+    - target: {fileID: 110643308088091067, guid: d7c277c1b5cd542a983ae1062b0d98a1,
+        type: 3}
+      propertyPath: m_Name
+      value: Steam Splatter
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385428106129897109, guid: d7c277c1b5cd542a983ae1062b0d98a1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385428106129897109, guid: d7c277c1b5cd542a983ae1062b0d98a1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385428106129897109, guid: d7c277c1b5cd542a983ae1062b0d98a1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385428106129897109, guid: d7c277c1b5cd542a983ae1062b0d98a1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385428106129897109, guid: d7c277c1b5cd542a983ae1062b0d98a1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385428106129897109, guid: d7c277c1b5cd542a983ae1062b0d98a1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385428106129897109, guid: d7c277c1b5cd542a983ae1062b0d98a1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385428106129897109, guid: d7c277c1b5cd542a983ae1062b0d98a1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385428106129897109, guid: d7c277c1b5cd542a983ae1062b0d98a1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385428106129897109, guid: d7c277c1b5cd542a983ae1062b0d98a1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628927488825297358, guid: d7c277c1b5cd542a983ae1062b0d98a1,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628927488825297358, guid: d7c277c1b5cd542a983ae1062b0d98a1,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628927488825297358, guid: d7c277c1b5cd542a983ae1062b0d98a1,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.69411767
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628927488825297358, guid: d7c277c1b5cd542a983ae1062b0d98a1,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime0
+      value: 193
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628927488825297358, guid: d7c277c1b5cd542a983ae1062b0d98a1,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.a
+      value: 0.5686275
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d7c277c1b5cd542a983ae1062b0d98a1, type: 3}
+--- !u!4 &3872347504628572855 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4385428106129897109, guid: d7c277c1b5cd542a983ae1062b0d98a1,
+    type: 3}
+  m_PrefabInstance: {fileID: 675957935987446818}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &9124688652422241772 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8628927488825297358, guid: d7c277c1b5cd542a983ae1062b0d98a1,
+    type: 3}
+  m_PrefabInstance: {fileID: 675957935987446818}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1855708521935037989
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -242,6 +349,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7569466129960816494}
     m_Modifications:
+    - target: {fileID: 707563742195387263, guid: 7a7ebd55d649847a695fc3321fca6fc3,
+        type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 775659636521133328, guid: 7a7ebd55d649847a695fc3321fca6fc3,
         type: 3}
       propertyPath: m_Name
@@ -265,12 +377,12 @@ PrefabInstance:
     - target: {fileID: 4005543350245323326, guid: 7a7ebd55d649847a695fc3321fca6fc3,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4005543350245323326, guid: 7a7ebd55d649847a695fc3321fca6fc3,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4005543350245323326, guid: 7a7ebd55d649847a695fc3321fca6fc3,
         type: 3}
@@ -301,6 +413,11 @@ PrefabInstance:
         type: 3}
       propertyPath: playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974191922287938917, guid: 7a7ebd55d649847a695fc3321fca6fc3,
+        type: 3}
+      propertyPath: ShapeModule.angle
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
