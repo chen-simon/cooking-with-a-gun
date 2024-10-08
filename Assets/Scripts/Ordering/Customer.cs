@@ -45,6 +45,7 @@ public class Customer : MonoBehaviour
     IEnumerator WalkOutCoroutine()
     {
         yield return new WaitForSeconds(leaveDelay);
+
         transform.DOMove(exitPosition.position, walkSpeed);
         OrderUI.SetActive(false);
     }

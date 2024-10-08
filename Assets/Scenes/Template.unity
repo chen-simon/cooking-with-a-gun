@@ -399,6 +399,90 @@ Transform:
   - {fileID: 379577817}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &158074312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 158074313}
+  - component: {fileID: 158074314}
+  m_Layer: 0
+  m_Name: Square
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &158074313
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158074312}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.52}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1883614460}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &158074314
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158074312}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: b15b7d60a4d284710a2ea73e13d6eeda, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 1
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!114 &185828029 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3089310955136233046, guid: 439b2e4a2f5624c9a82b620aaf3df659,
@@ -457,7 +541,6 @@ MonoBehaviour:
   eggPrefab: {fileID: 512959532174081125, guid: a103ded7c2da145efa3c4a222966098e,
     type: 3}
   egg: {fileID: 0}
-  active: 0
 --- !u!4 &276835545
 Transform:
   m_ObjectHideFlags: 0
@@ -2426,8 +2509,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.916201, y: 2.9919887, z: 0.61736137}
-  m_Center: {x: -0.00000047683716, y: -0.44664633, z: 0.14969918}
+  m_Size: {x: 4.916201, y: 2.9919887, z: 0.4444056}
+  m_Center: {x: -0.00000047683716, y: -0.44664633, z: 0.06322108}
 --- !u!4 &1524349282 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7569466129960816494, guid: 830548ad0e75f4bbfad2d5e29a48e5b4,
@@ -3075,10 +3158,11 @@ Transform:
   m_GameObject: {fileID: 1883614459}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0003776725, y: -0.008716148, z: 0.0002452666, w: 0.9999619}
-  m_LocalPosition: {x: 4.73, y: 0.04, z: -4.59}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 4.73, y: 0.04, z: -4.56}
+  m_LocalScale: {x: 1, y: 1, z: 0.3}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 158074313}
   m_Father: {fileID: 348813549}
   m_LocalEulerAnglesHint: {x: 0.044, y: -0.999, z: 0.028}
 --- !u!114 &1883614461
@@ -3162,7 +3246,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 52e3b9cce8dac447da39c17eb22d03fb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3913,7 +3997,7 @@ PrefabInstance:
     - target: {fileID: 3539720437148315315, guid: 439b2e4a2f5624c9a82b620aaf3df659,
         type: 3}
       propertyPath: instructions.Array.data[0]
-      value: Shoot the button to spawn an egg then shoot it
+      value: Pull the trigger to shoot an egg
       objectReference: {fileID: 0}
     - target: {fileID: 3539720437148315315, guid: 439b2e4a2f5624c9a82b620aaf3df659,
         type: 3}
