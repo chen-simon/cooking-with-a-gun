@@ -10,7 +10,7 @@ jobs:
       fail-fast: false
       matrix:
         projectPath:
-          - ./
+          - .
         unityVersion:
           - 2022.3.42f1
         targetPlatform:
