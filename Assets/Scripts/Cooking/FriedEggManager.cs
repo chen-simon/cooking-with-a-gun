@@ -67,7 +67,6 @@ public class FriedEggManager : MonoBehaviour
             {
                 StartCoroutine(FinishOrder());
                 Stage1();
-
             }
             currentStage = (currentStage + 1) % 3;
             sparkleSfx.Play();
@@ -78,12 +77,12 @@ public class FriedEggManager : MonoBehaviour
 
     void Stage1()
     {
-        launcher.StartLaunching();
+        launcher.active = true;
     }
 
     void Stage2()
     {
-        launcher.StopLaunching();
+        launcher.active = false;
         StartCoroutine(Stage2Coroutine());
     }
 
