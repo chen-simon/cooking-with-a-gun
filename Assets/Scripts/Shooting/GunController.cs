@@ -20,6 +20,7 @@ public class GunController : MonoBehaviour
     public float screenShakeDuration = 0.1f;
 
     bool inCooldown;
+    bool isReloading;
 
     Vector3 rayDirection;
     
@@ -127,13 +128,18 @@ public class GunController : MonoBehaviour
 
     IEnumerator ReloadCoroutine()
     {
+        isReloading = true;
         reloadAudio.Play();
         yield return new WaitForSeconds(currentGun.reloadTime);
         ammo = currentGun.ammoCapacity;
+        isReloading = false;
     }
 
     void Reload()
     {
+        if (isReloading) return;
+        if (ammo == currentGun.ammoCapacity) return;
+        
         StopCoroutine(ReloadCoroutine());
         StartCoroutine(ReloadCoroutine());
     }
