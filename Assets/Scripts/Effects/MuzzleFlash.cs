@@ -7,6 +7,7 @@ public class MuzzleFlash : MonoBehaviour
 
     public float flashTime = 0.2f;
     public SpriteRenderer sp;
+    public GameObject light;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +29,9 @@ public class MuzzleFlash : MonoBehaviour
     IEnumerator FlashCoroutine()
     {
         sp.enabled = true;
+        light.SetActive(true);
         yield return new WaitForSeconds(flashTime);
+        light.SetActive(false);
         sp.enabled = false;
     }
 }
