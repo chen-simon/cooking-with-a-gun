@@ -7,7 +7,7 @@ public class Pan : MonoBehaviour, IShootable
     public float launchForce;
     public float angularVelocityAmount = 60f;
     private Rigidbody panRb;
-    [SerializeField] GameObject oilSplatterPrefab;
+    [SerializeField] ParticleSystem oilSplatter;
 
     // Start is called before the first frame update
     void Start()
@@ -35,8 +35,8 @@ public class Pan : MonoBehaviour, IShootable
         FriedEggManager.main.Flip();
 
         AudioSource eggAudio = FriedEggManager.main.friedEgg.GetComponent<AudioSource>();
-        Instantiate(oilSplatterPrefab, transform);
         eggAudio.Play();
+        oilSplatter.Play();
         AddAngularVelocity();
     }
     void AddAngularVelocity()
