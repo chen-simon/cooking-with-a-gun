@@ -48,6 +48,7 @@ public class GunController : MonoBehaviour
         muzzleFlash.Flash();
 
         RaycastHit hit;
+
         if (Physics.Raycast(Camera.main.transform.position, rayDirection, out hit, Mathf.Infinity, layerMask))
         {
             ShootEffect(hit);
@@ -64,7 +65,7 @@ public class GunController : MonoBehaviour
         Rigidbody rb = hit.collider.attachedRigidbody;
         if (rb == null) return;
 
-        Vector3 knockbackForce = -hit.normal * Mathf.Abs(Vector3.Dot(hit.normal, rayDirection)) * currentGun.knockbackForce;
+        Vector3 knockbackForce = currentGun.knockbackForce * Mathf.Abs(Vector3.Dot(hit.normal, rayDirection)) * -hit.normal;
                 
         rb.AddForce(knockbackForce);
 
