@@ -10,7 +10,21 @@ public class GameManager : MonoBehaviour
     [SerializeField]private TextMeshProUGUI money;
     private int totalEarnings = 0;
     public int revenue = 0;
+
     void Start()
+    {
+        if (!CalibrationUI.Instance.IsCalibrated())
+        {
+            CalibrationUI.Instance.ShowCalibrationScreen();
+        }
+        else
+        {
+            StartGame();
+        }
+    }
+
+
+    void StartGame()
     {
         orderManager.OrderUpdate();
         UpdateMoeny();
