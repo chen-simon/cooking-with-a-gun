@@ -311,6 +311,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8628927488825297358, guid: d7c277c1b5cd542a983ae1062b0d98a1,
         type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628927488825297358, guid: d7c277c1b5cd542a983ae1062b0d98a1,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628927488825297358, guid: d7c277c1b5cd542a983ae1062b0d98a1,
+        type: 3}
       propertyPath: InitialModule.startColor.maxColor.a
       value: 0.69411767
       objectReference: {fileID: 0}
@@ -321,8 +331,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8628927488825297358, guid: d7c277c1b5cd542a983ae1062b0d98a1,
         type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime2
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628927488825297358, guid: d7c277c1b5cd542a983ae1062b0d98a1,
+        type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.a
-      value: 0.5686275
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
