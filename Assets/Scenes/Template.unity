@@ -3438,8 +3438,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: ecc7d8b2648f449a7ae8db50abf06ac9, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -4036,6 +4036,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 348813549}
     m_Modifications:
+    - target: {fileID: 4151245051486192518, guid: 830548ad0e75f4bbfad2d5e29a48e5b4,
+        type: 3}
+      propertyPath: oilSplatterPrefab
+      value: 
+      objectReference: {fileID: 775659636521133328, guid: 7a7ebd55d649847a695fc3321fca6fc3,
+        type: 3}
     - target: {fileID: 5382567237006499141, guid: 830548ad0e75f4bbfad2d5e29a48e5b4,
         type: 3}
       propertyPath: m_Name

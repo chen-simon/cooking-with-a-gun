@@ -5,6 +5,7 @@ using UnityEngine;
 public class Pan : MonoBehaviour, IShootable
 {
     public float launchForce;
+    [SerializeField] GameObject oilSplatterPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,7 @@ public class Pan : MonoBehaviour, IShootable
         FriedEggManager.main.Flip();
 
         AudioSource eggAudio = FriedEggManager.main.friedEgg.GetComponent<AudioSource>();
+        Instantiate(oilSplatterPrefab, transform);
         eggAudio.Play();
     }
 }
