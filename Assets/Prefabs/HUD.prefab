@@ -153,7 +153,7 @@ MonoBehaviour:
   empty: {r: 1, g: 1, b: 1, a: 0}
   fadeInDelay: 1
   holdTime: 0
-  fadeTime: 0.2
+  fadeTime: 0.3
   useFadeIn: 1
   useFadeOut: 0
 --- !u!1 &1546386353120935661
@@ -826,7 +826,7 @@ MonoBehaviour:
   empty: {r: 1, g: 1, b: 1, a: 0}
   fadeInDelay: 1
   holdTime: 0
-  fadeTime: 0.2
+  fadeTime: 0.3
   useFadeIn: 1
   useFadeOut: 0
 --- !u!1 &3982075795266768472
@@ -1294,7 +1294,7 @@ MonoBehaviour:
   empty: {r: 1, g: 1, b: 1, a: 0}
   fadeInDelay: 1
   holdTime: 0
-  fadeTime: 0.2
+  fadeTime: 0.3
   useFadeIn: 1
   useFadeOut: 0
 --- !u!1 &5837109209158628358
@@ -1585,7 +1585,7 @@ MonoBehaviour:
   empty: {r: 1, g: 1, b: 1, a: 0}
   fadeInDelay: 0
   holdTime: 2
-  fadeTime: 0.2
+  fadeTime: 0.3
   useFadeIn: 1
   useFadeOut: 1
 --- !u!1 &7047038070981369055
