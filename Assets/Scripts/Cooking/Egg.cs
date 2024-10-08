@@ -46,13 +46,4 @@ public class Egg : MonoBehaviour, IShootable
 
         Destroy(gameObject);
     }
-
-    private void OnDestroy()
-    {
-        // Notify the EggLauncher that the egg is destroyed
-        if (eggLauncher != null)
-        {
-            eggLauncher.OnEggDestroyed();
-        }
-    }
 }
