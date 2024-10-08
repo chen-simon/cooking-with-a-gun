@@ -9,7 +9,7 @@ public class TimeManager : MonoBehaviour
     private float currentTime;
     private int totalDays;
     private bool isDayOver;
-
+    public static TimeManager main;
     public TextMeshProUGUI dayText; // UI Text for displaying current day
     public TextMeshProUGUI timerText; // UI Text for displaying remaining time
     public TextMeshProUGUI revenueText;
@@ -18,7 +18,11 @@ public class TimeManager : MonoBehaviour
     public GameObject summaryPanel; // A panel to show summary and wait for player input
     [SerializeField]private OrderManager orderManager;
     [SerializeField]private GameManager gameManager;
-
+    void Awake()
+    {
+        if (main) Destroy(gameObject);
+        else main = this;
+    }
     void Start()
     {
         totalDays = 1;
@@ -33,14 +37,6 @@ public class TimeManager : MonoBehaviour
         if (!isDayOver)
         {
             RunDayTimer();
-        }
-        else
-        {
-            // Wait for player to press Enter to start the next day
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-                StartNextDay();
-            }
         }
     }
 
@@ -78,7 +74,7 @@ public class TimeManager : MonoBehaviour
         return totalDays * 10; // Example: earnings increase with each day
     }
 
-    void StartNextDay()
+    public void StartNextDay()
     {
         isDayOver = false; // Reset the day status
         totalDays++; // Increment the day count

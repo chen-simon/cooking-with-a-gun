@@ -135,7 +135,7 @@ public class GunController : MonoBehaviour
         isReloading = false;
     }
 
-    void Reload()
+    public void Reload()
     {
         if (isReloading) return;
         if (ammo == currentGun.ammoCapacity) return;
