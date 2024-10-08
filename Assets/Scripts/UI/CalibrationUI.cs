@@ -12,7 +12,7 @@ public class CalibrationUI : MonoBehaviour
     public Transform triangleParent;
 
     private bool isCalibrated = false;
-    private float bounceSpeed = 1f;
+    private float bounceSpeed = 1.7f;
     private float bounceDistance = 20f;
     private RectTransform[] triangles;
     private Vector2[] originalPositions;
@@ -46,10 +46,13 @@ public class CalibrationUI : MonoBehaviour
 
     public void ShowCalibrationScreen()
     {
-        isCalibrated = false;
-        calibrationPanel.SetActive(true);
-        instructionText.text = "Point the controller at the screen and press A!";
-        CreateTriangles();
+        if (!isCalibrated)
+        {
+            isCalibrated = false;
+            calibrationPanel.SetActive(true);
+            instructionText.text = "Point the controller at the screen and press A!";
+            CreateTriangles();
+        }
     }
 
     private void SetupCalibrationScreen()
@@ -59,10 +62,16 @@ public class CalibrationUI : MonoBehaviour
 
     private void CreateTriangles()
     {
+        // Clear out any existing triangles
+        foreach (Transform child in triangleParent)
+        {
+            Destroy(child.gameObject);
+        }
+
         triangles = new RectTransform[4];
         originalPositions = new Vector2[4];
 
-        float scale = 0.3f; // Adjust this value to make triangles larger or smaller
+        float scale = 0.3f;
         float distanceFromCenterVertical = 250f; // Distance for top and bottom triangles
         float distanceFromCenterHorizontal = 500f; // Distance for left and right triangles
 
@@ -84,8 +93,8 @@ public class CalibrationUI : MonoBehaviour
             );
 
             // Ensure the image is visible and correctly sized
-            newTriangle.color = Color.white; // Or any color you want
-            newTriangle.SetNativeSize(); // This will set the size to match the original image
+            newTriangle.color = Color.white;
+            newTriangle.SetNativeSize();
 
             // Apply scale to the triangle, flipping horizontally for left and right triangles
             Vector3 triangleScale = Vector3.one * scale;
@@ -103,6 +112,7 @@ public class CalibrationUI : MonoBehaviour
     {
         isCalibrated = true;
         calibrationPanel.SetActive(false);
+        ClearTriangles();
     }
 
     public bool IsCalibrated()
@@ -118,6 +128,21 @@ public class CalibrationUI : MonoBehaviour
         {
             Vector2 direction = (Vector2.zero - originalPositions[i]).normalized;
             triangles[i].anchoredPosition = originalPositions[i] + direction * bounce;
+        }
+    }
+
+    private void ClearTriangles()
+    {
+        if (triangles != null)
+        {
+            foreach (var triangle in triangles)
+            {
+                if (triangle != null)
+                {
+                    Destroy(triangle.gameObject);
+                }
+            }
+            triangles = null;
         }
     }
 }
