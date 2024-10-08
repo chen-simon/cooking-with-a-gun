@@ -10,6 +10,8 @@ public class GunController : MonoBehaviour
     public Transform gunModel;
     public float distance;
 
+    public int ammo;
+
     public Gun currentGun;
     public MuzzleFlash muzzleFlash;
 
@@ -31,6 +33,11 @@ public class GunController : MonoBehaviour
         else main = this;
     }
 
+    void Start()
+    {
+        ammo = currentGun.ammoCapacity;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -41,6 +48,14 @@ public class GunController : MonoBehaviour
     {
         if (inCooldown) return;
 
+        if (ammo <= 0)
+        {
+            Reload();
+            return;
+        }
+
+        ammo--;
+        
         CameraController.main.Shake(
             currentGun.screenShakeDuration,
             currentGun.screenShakeMagnitude);
@@ -107,5 +122,17 @@ public class GunController : MonoBehaviour
         inCooldown = true;
         yield return new WaitForSeconds(1f / currentGun.firerate);
         inCooldown = false;
+    }
+
+    IEnumerator ReloadCoroutine()
+    {
+        yield return new WaitForSeconds(currentGun.reloadTime);
+        ammo = currentGun.ammoCapacity;
+    }
+
+    void Reload()
+    {
+        StopCoroutine(ReloadCoroutine());
+        StartCoroutine(ReloadCoroutine());
     }
 }
