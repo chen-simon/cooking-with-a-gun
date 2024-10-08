@@ -16,7 +16,7 @@ jobs:
         targetPlatform:
           - StandaloneWindows # Build a Windows 32-bit standalone.
           - StandaloneWindows64 # Build a Windows 64-bit standalone.
-
+          - WebGL # WebGL.
     steps:
       - uses: actions/checkout@v4
         with:
@@ -44,7 +44,7 @@ jobs:
           customParameters: '-myParameter myValue -myBoolean -ThirdParameter andItsValue'
       - uses: actions/upload-artifact@v3
         with:
-          name: Windows
+          name: WindowsAndWebGL
           path: build
 
   buildForMacOSBasedPlatforms:
