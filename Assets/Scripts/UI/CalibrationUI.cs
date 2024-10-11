@@ -12,7 +12,7 @@ public class CalibrationUI : MonoBehaviour
     public Transform triangleParent;
 
     private bool isCalibrated = false;
-    private float bounceSpeed = 1.7f;
+    private float bounceSpeed = 2f;
     private float bounceDistance = 20f;
     private RectTransform[] triangles;
     private Vector2[] originalPositions;
@@ -29,35 +29,6 @@ public class CalibrationUI : MonoBehaviour
         }
 
         triangleTemplate.gameObject.SetActive(false);
-    }
-
-    void Start()
-    {
-        SetupCalibrationScreen();
-    }
-
-    void Update()
-    {
-        if (!isCalibrated)
-        {
-            AnimateTriangles();
-        }
-    }
-
-    public void ShowCalibrationScreen()
-    {
-        if (!isCalibrated)
-        {
-            isCalibrated = false;
-            calibrationPanel.SetActive(true);
-            instructionText.text = "Point the controller at the screen and press A!";
-            CreateTriangles();
-        }
-    }
-
-    private void SetupCalibrationScreen()
-    {
-        ShowCalibrationScreen();
     }
 
     private void CreateTriangles()
@@ -92,11 +63,9 @@ public class CalibrationUI : MonoBehaviour
                 Mathf.Cos(angle * Mathf.Deg2Rad) * distanceFromCenter
             );
 
-            // Ensure the image is visible and correctly sized
-            newTriangle.color = Color.white;
-            newTriangle.SetNativeSize();
 
             // Apply scale to the triangle, flipping horizontally for left and right triangles
+            newTriangle.SetNativeSize();
             Vector3 triangleScale = Vector3.one * scale;
             if (i == 1 || i == 3) // Left and right triangles
             {
@@ -108,18 +77,6 @@ public class CalibrationUI : MonoBehaviour
         }
     }
 
-    public void Calibrate()
-    {
-        isCalibrated = true;
-        calibrationPanel.SetActive(false);
-        ClearTriangles();
-    }
-
-    public bool IsCalibrated()
-    {
-        return isCalibrated;
-    }
-
     private void AnimateTriangles()
     {
         float bounce = Mathf.Sin(Time.time * bounceSpeed) * bounceDistance;
@@ -128,6 +85,30 @@ public class CalibrationUI : MonoBehaviour
         {
             Vector2 direction = (Vector2.zero - originalPositions[i]).normalized;
             triangles[i].anchoredPosition = originalPositions[i] + direction * bounce;
+        }
+    }
+
+    public void ShowCalibrationScreen()
+    {
+        if (!isCalibrated)
+        {
+            isCalibrated = false;
+            calibrationPanel.SetActive(true);
+            instructionText.text = "Point the controller at the center of the screen and press A!";
+            CreateTriangles();
+        }
+    }
+
+    void Start()
+    {
+        ShowCalibrationScreen();
+    }
+
+    void Update()
+    {
+        if (!isCalibrated)
+        {
+            AnimateTriangles();
         }
     }
 
@@ -144,5 +125,29 @@ public class CalibrationUI : MonoBehaviour
             }
             triangles = null;
         }
+    }
+
+    public void Calibrate()
+    {
+        isCalibrated = true;
+        calibrationPanel.SetActive(false);
+        ClearTriangles();
+    }
+
+    public bool IsCalibrated()
+    {
+        return isCalibrated;
+    }
+
+    public void HideCalibrationManager()
+    {
+        if (isCalibrated)
+        {
+            return;
+        }
+
+        isCalibrated = true;
+        calibrationPanel.SetActive(false);
+        ClearTriangles();
     }
 }
