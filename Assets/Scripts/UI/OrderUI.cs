@@ -5,38 +5,11 @@ using UnityEngine;
 public class OrderUI : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] private RecipeUI recipeUItemplete;
-    [SerializeField] private Transform recipeParent;
-    void Start()
-    {
-        recipeUItemplete.gameObject.SetActive(false);
-        OrderManager.Instance.OnRecipeSpwaned += OrderManager_OnRecipeSpawned;
-        OrderManager.Instance.OnRecipeFinished += OrderManager_OnRecipeFinished;
-    }
-    private void OrderManager_OnRecipeSpawned(object sender, System.EventArgs e){
-        UpdateUI();
-    }
-
-    private void OrderManager_OnRecipeFinished(object sender, System.EventArgs e){
-        UpdateUI();
-    }
-    private void UpdateUI(){
-        foreach(Transform child in recipeParent)
-        {
-            if(child != recipeUItemplete.transform)
-            {
-                Destroy(child.gameObject);
-            }
-        }
-        RecipeSO currentRecipe = OrderManager.Instance.getCurrentRecipe();
-        RecipeUI recipeUI = GameObject.Instantiate(recipeUItemplete);
-        recipeUI.transform.SetParent(recipeParent, false);
-        recipeUI.gameObject.SetActive(true);
-        recipeUI.UpdateUI(currentRecipe);
-    }
-    // Update is called once per frame
+    [SerializeField] private SpriteRenderer foodItem;
+    [SerializeField] Customer customer;
+    
     void Update()
     {
-        
+        foodItem.sprite = customer.recipe.sprite;
     }
 }

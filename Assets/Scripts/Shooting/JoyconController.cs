@@ -78,19 +78,22 @@ public class JoyconController : MonoBehaviour {
 			{
 				Debug.Log ("DPAD_RIGHT held");
 			}
-
+			if (j.GetButtonDown (Joycon.Button.DPAD_LEFT))
+			{
+				Debug.Log ("DPAD_LEFT pressed");
+				ReloadInput();
+				j.SetRumble (100, 150, 0.6f, 100);
+			}
+			if (j.GetButtonDown (Joycon.Button.DPAD_LEFT))
+			{
+				Debug.Log ("DPAD_LEFT released");
+			}
 			if (j.GetButtonDown (Joycon.Button.DPAD_DOWN)) {
-				Debug.Log ("Rumble");
-
-				// Rumble for 200 milliseconds, with low frequency rumble at 160 Hz and high frequency rumble at 320 Hz. For more information check:
-				// https://github.com/dekuNukem/Nintendo_Switch_Reverse_Engineering/blob/master/rumble_data_table.md
-
-				j.SetRumble (160, 320, 0.6f, 200);
-
-
-				// The last argument (time) in SetRumble is optional. Call it with three arguments to turn it on without telling it when to turn off.
-                // (Useful for dynamically changing rumble values.)
-				// Then call SetRumble(0,0,0) when you want to turn it off.
+				Debug.Log ("DPAD_DOWN pressed");
+				StartNextDayInput();
+			}
+			if (j.GetButtonUp (Joycon.Button.DPAD_DOWN)) {
+				Debug.Log ("DPAD_DOWN released");
 			}
 
             stick = j.GetStick();
@@ -166,4 +169,14 @@ public class JoyconController : MonoBehaviour {
 	    joycons[jc_ind].SetRumble(160, 320, currentGun.rumbleMagnitude, currentGun.rumbleTime); // Short 
 	    GunController.main.Shoot();
     }
+
+	public void ReloadInput()
+    {
+        GunController.main.Reload();
+    }
+
+	public void StartNextDayInput()
+	{
+		TimeManager.main.StartNextDay();
+	}
 }

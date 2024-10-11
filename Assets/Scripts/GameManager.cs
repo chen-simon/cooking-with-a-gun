@@ -5,11 +5,19 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager main;
     // Start is called before the first frame update
     [SerializeField]private OrderManager orderManager;
-    [SerializeField]private TextMeshProUGUI money;
-    private int totalEarnings = 0;
+
+    [SerializeField] AudioSource moneySound;
+
     public int revenue = 0;
+
+    private void Awake()
+    {
+        if (main) Destroy(gameObject);
+        else main = this;
+    }
 
     void Start()
     {
@@ -27,7 +35,6 @@ public class GameManager : MonoBehaviour
     void StartGame()
     {
         orderManager.OrderUpdate();
-        UpdateMoeny();
     }
 
     // Update is called once per frame
@@ -43,14 +50,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void CalculateEarnings(RecipeSO recipeSO)
+    public void CalculateEarnings(Recipe recipe)
     {
-        totalEarnings += recipeSO.price;
-        revenue += recipeSO.price;
-    }
-
-    public void UpdateMoeny()
-    {
-        money.text = $"${totalEarnings}";
+        revenue += recipe.price;
+        moneySound.Play();
     }
 }

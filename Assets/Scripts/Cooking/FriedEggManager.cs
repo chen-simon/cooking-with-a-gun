@@ -67,7 +67,6 @@ public class FriedEggManager : MonoBehaviour
             {
                 StartCoroutine(FinishOrder());
                 Stage1();
-
             }
             currentStage = (currentStage + 1) % 3;
             sparkleSfx.Play();
@@ -78,12 +77,10 @@ public class FriedEggManager : MonoBehaviour
 
     void Stage1()
     {
-        launcher.StartLaunching();
     }
 
     void Stage2()
     {
-        launcher.StopLaunching();
         StartCoroutine(Stage2Coroutine());
     }
 
@@ -109,6 +106,7 @@ public class FriedEggManager : MonoBehaviour
         friedEgg.transform.DORotate(Vector3.zero, eggMoveTime);
 
         rb.useGravity = true;
-        rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
+        rb.detectCollisions = true;
+
     }
 }

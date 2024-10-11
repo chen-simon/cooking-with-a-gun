@@ -19,6 +19,15 @@ public class MouseManager : MonoBehaviour
         {
             ShootInput();
         }
+
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            ReloadInput();
+        }
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            StartNextDayInput();
+        }
     }
 
     public void ShootInput()
@@ -26,6 +35,15 @@ public class MouseManager : MonoBehaviour
         GunController.main.Shoot();
     }
 
+    public void ReloadInput()
+    {
+        GunController.main.Reload();
+    }
+
+    public void StartNextDayInput()
+	{
+		TimeManager.main.StartNextDay();
+	}
     public void UpdatePointerPosition()
     {
             
