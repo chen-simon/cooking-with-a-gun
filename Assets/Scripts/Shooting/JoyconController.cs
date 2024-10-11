@@ -63,7 +63,10 @@ public class JoyconController : MonoBehaviour {
 				Debug.Log(string.Format("Stick x: {0:N} Stick y: {1:N}",j.GetStick()[0],j.GetStick()[1]));
             
 				// Joycon has no magnetometer, so it cannot accurately determine its yaw value. Joycon.Recenter allows the user to reset the yaw value.
-				j.Recenter ();
+				j.Recenter();
+
+				// Hide the calibration
+				CalibrationUI.Instance.HideCalibrationManager();
 			}
 			// GetButtonDown checks if a button has been released
 			if (j.GetButtonUp (Joycon.Button.DPAD_RIGHT))
@@ -131,6 +134,8 @@ public class JoyconController : MonoBehaviour {
         }
 	    
     }
+
+	
     
     // Method to map the Joycon orientation to the pointer's position on the screen
     void UpdatePointerPosition(Quaternion joyconOrientation, Quaternion rotation)

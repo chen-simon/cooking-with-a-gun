@@ -21,6 +21,19 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        if (!CalibrationUI.Instance.IsCalibrated())
+        {
+            CalibrationUI.Instance.ShowCalibrationScreen();
+        }
+        else
+        {
+            StartGame();
+        }
+    }
+
+
+    void StartGame()
+    {
         orderManager.OrderUpdate();
     }
 
