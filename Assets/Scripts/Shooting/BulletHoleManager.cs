@@ -38,6 +38,7 @@ public class BulletHoleManager : MonoBehaviour
             GameObject bulletHole = bulletHoles.Dequeue();
             bulletHole.transform.position = position;
             bulletHole.transform.rotation = rotation;
+            bulletHole.GetComponentInChildren<ParticleSystem>().Play();
             bulletHoles.Enqueue(bulletHole);
         } else {
             // Create a new bullet hole as children of this object
