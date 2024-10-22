@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -10,6 +11,8 @@ public class UITutorial : MonoBehaviour
 
     public string[] instructions;
     public GameObject[] thingsToUnhide;
+    public string[] additionalInstrutctions;
+    int currentAdditionalInstruction = 0;
 
     public TextMeshProUGUI instructionTextbox;
     
@@ -26,16 +29,29 @@ public class UITutorial : MonoBehaviour
 
         if (OrderManager.main.orderCounter > 0)
             Disable();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         if (OrderManager.main.orderCounter > 0)
-            Disable();
+        {
+            if (additionalInstrutctions.Length >= currentAdditionalInstruction)
+            {
+                Disable();
+            }
+
+            // Additional Instructions
+            instructionTextbox.text = instructions[currentAdditionalInstruction];
+            /// TODO: Finish later ...
+        }
+
+        // Main Instructions
 
         instructionTextbox.text = instructions[FriedEggManager.main.currentStage];
     }
+
 
     void Disable()
     {

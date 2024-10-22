@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        if (!CalibrationUI.Instance.IsCalibrated())
+        if (CalibrationUI.Instance && !CalibrationUI.Instance.IsCalibrated())
         {
             CalibrationUI.Instance.ShowCalibrationScreen();
         }
