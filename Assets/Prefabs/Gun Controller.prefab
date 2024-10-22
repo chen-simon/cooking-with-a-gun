@@ -253,8 +253,10 @@ MonoBehaviour:
   ammo: 0
   currentGun: {fileID: 11400000, guid: 957fb8b40b81b47ac82ea83176e7d19a, type: 2}
   muzzleFlash: {fileID: 578791434797503697}
+  gunTrail: {fileID: 0}
   screenShakeMagnitude: 1
   screenShakeDuration: 0.1
+  muzzle: {fileID: 0}
   layerMask:
     serializedVersion: 2
     m_Bits: 3059
@@ -315,7 +317,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 35
+    FieldOfView: 40
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
