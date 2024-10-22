@@ -15,12 +15,16 @@ public class GunController : MonoBehaviour
     public Gun currentGun;
     public MuzzleFlash muzzleFlash;
 
+    public LineRenderer gunTrail;
+
     // Used for screen shake upon shooting
     public float screenShakeMagnitude = 0.1f;
     public float screenShakeDuration = 0.1f;
 
     bool inCooldown;
     bool isReloading;
+    
+    public Transform muzzle;
 
     Vector3 rayDirection;
     
@@ -38,6 +42,11 @@ public class GunController : MonoBehaviour
     void Start()
     {
         ammo = currentGun.ammoCapacity;
+
+        if (gunTrail != null)
+        {
+            gunTrail.positionCount = 0;
+        }
     }
 
     // Update is called once per frame
@@ -69,12 +78,74 @@ public class GunController : MonoBehaviour
         if (Physics.Raycast(Camera.main.transform.position, rayDirection, out hit, Mathf.Infinity, layerMask))
         {
             ShootEffect(hit);
+            ShowGunTrail(hit.point);
             if (hit.collider.tag == "Level")
             {
                 BulletHoleManager.main.CreateBulletHole(hit.point, Quaternion.LookRotation(hit.normal));
             }
         }
+        else
+        {
+            // if didn't hit anything, show the trail to ap oint far in the distance
+            ShowGunTrail(Camera.main.transform.position + rayDirection * 1000f);
+        }
         StartCoroutine(Cooldown());
+    }
+
+    private void ShowGunTrail(Vector3 hitPoint)
+    {
+        if (gunTrail == null) return;
+
+        StartCoroutine(AnimateGunTrail(hitPoint));
+    }
+
+    private IEnumerator AnimateGunTrail(Vector3 hitPoint)
+    {
+        float trailDuration = 0.1f;
+        float elapsedTime = 0f;
+
+        // Use the muzzle's position for the start of the trail
+        Vector3 startPosition = muzzle.position;
+
+        Color startColor = gunTrail.startColor;
+        Color endColor = gunTrail.endColor;
+
+        while (elapsedTime < trailDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float progress = elapsedTime / trailDuration;
+
+            gunTrail.positionCount = 2;
+
+            // Set the bullet trail from muzzle to hit point over time
+            gunTrail.SetPosition(0, startPosition);
+            gunTrail.SetPosition(1, Vector3.Lerp(startPosition, hitPoint, progress));
+
+            float alpha = Mathf.Lerp(1f, 0f, progress);
+            gunTrail.startColor = new Color(startColor.r, startColor.g, startColor.b, alpha);
+            gunTrail.endColor = new Color(endColor.r, endColor.g, endColor.b, alpha);
+
+            yield return null;
+        }
+
+        gunTrail.positionCount = 0;
+    }
+
+    private IEnumerator FadeGunTrail()
+    {
+        float elapsedTime = 0f;
+        float duration = 0.1f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float alpha = Mathf.Lerp(1f, 0f, elapsedTime / duration);
+            gunTrail.startColor = new Color(gunTrail.startColor.r, gunTrail.startColor.g, gunTrail.startColor.b, alpha);
+            gunTrail.endColor = new Color(gunTrail.endColor.r, gunTrail.endColor.g, gunTrail.endColor.b, alpha);
+            yield return null;
+        }
+
+        gunTrail.positionCount = 0;
     }
 
     void ShootEffect(RaycastHit hit)
