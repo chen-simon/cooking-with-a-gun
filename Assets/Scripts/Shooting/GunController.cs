@@ -23,16 +23,17 @@ public class GunController : MonoBehaviour
 
     bool inCooldown;
     bool isReloading;
-    
+
+    // Reference point for bulle trail -- should be used to reference a empty game object at where the bullet trail is supposed to start
     public Transform muzzle;
 
     Vector3 rayDirection;
-    
+
     public LayerMask layerMask;
 
     [SerializeField] AudioSource gunshotClip;
     [SerializeField] AudioSource reloadAudio;
-    
+
     void Awake()
     {
         if (main) Destroy(gameObject);
@@ -66,7 +67,7 @@ public class GunController : MonoBehaviour
         }
 
         ammo--;
-        
+
         CameraController.main.Shake(
             currentGun.screenShakeDuration,
             currentGun.screenShakeMagnitude);
@@ -86,7 +87,7 @@ public class GunController : MonoBehaviour
         }
         else
         {
-            // if didn't hit anything, show the trail to ap oint far in the distance
+            // if didn't hit anything, show the trail to a point far in the distance
             ShowGunTrail(Camera.main.transform.position + rayDirection * 1000f);
         }
         StartCoroutine(Cooldown());
@@ -104,7 +105,6 @@ public class GunController : MonoBehaviour
         float trailDuration = 0.1f;
         float elapsedTime = 0f;
 
-        // Use the muzzle's position for the start of the trail
         Vector3 startPosition = muzzle.position;
 
         Color startColor = gunTrail.startColor;
@@ -154,7 +154,7 @@ public class GunController : MonoBehaviour
         if (rb == null) return;
 
         Vector3 knockbackForce = currentGun.knockbackForce * Mathf.Abs(Vector3.Dot(hit.normal, rayDirection)) * -hit.normal;
-                
+
         rb.AddForce(knockbackForce);
 
         AudioSource audioSource = rb.GetComponent<AudioSource>();
@@ -164,7 +164,7 @@ public class GunController : MonoBehaviour
         IShootable shootable = rb.GetComponent<IShootable>();
         if (shootable != null)
             shootable.TakeShot(knockbackForce);
-        
+
     }
 
     public void UpdateCrosshairPostiton(Vector2 screenPosition)
@@ -176,7 +176,7 @@ public class GunController : MonoBehaviour
     {
         float scale = Screen.width / 1920f;
 
-        Vector2 scaledCrosshairCoords = 
+        Vector2 scaledCrosshairCoords =
             new Vector2(crosshair.anchoredPosition.x * scale + Screen.width / 2,
                         crosshair.anchoredPosition.y * scale + Screen.height / 2);
 
@@ -188,7 +188,7 @@ public class GunController : MonoBehaviour
         Vector3 targetDirection = gunModel.transform.position - target;
         Vector3 newDirection = Vector3.RotateTowards(gunModel.forward, targetDirection, Mathf.PI, 0);
         gunModel.transform.rotation = Quaternion.LookRotation(newDirection);
-    }    
+    }
 
     IEnumerator Cooldown()
     {
@@ -210,7 +210,7 @@ public class GunController : MonoBehaviour
     {
         if (isReloading) return;
         if (ammo == currentGun.ammoCapacity) return;
-        
+
         StopCoroutine(ReloadCoroutine());
         StartCoroutine(ReloadCoroutine());
     }
