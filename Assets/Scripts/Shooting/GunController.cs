@@ -215,6 +215,7 @@ public class GunController : MonoBehaviour
     {
         isReloading = true;
         reloadAudio.Play();
+        animator.SetTrigger("Reload");
         yield return new WaitForSeconds(currentGun.reloadTime);
         ammo = currentGun.ammoCapacity;
         isReloading = false;

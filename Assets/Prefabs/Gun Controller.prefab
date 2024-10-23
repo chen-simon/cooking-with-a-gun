@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 5228328366143849590}
   - component: {fileID: 84849063576714561}
   - component: {fileID: 4826061044541224234}
+  - component: {fileID: 2466085647788675106}
   m_Layer: 0
   m_Name: Gun Controller
   m_TagString: Untagged
@@ -256,13 +257,37 @@ MonoBehaviour:
   gunTrail: {fileID: 722205836299765328}
   screenShakeMagnitude: 1
   screenShakeDuration: 0.1
-  gunTrailTime: 0.05
+  inCooldown: 0
+  isReloading: 0
+  isFull: 1
+  gunTrailTime: 0.025
   muzzle: {fileID: 3739283729964965612}
   layerMask:
     serializedVersion: 2
     m_Bits: 3059
   gunshotClip: {fileID: 84849063576714561}
   reloadAudio: {fileID: 2453798552357420552}
+--- !u!95 &2466085647788675106
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3378506479355518407}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 80f280f5acbf8ab4e83e0dd85c1461fc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3976182438215752384
 GameObject:
   m_ObjectHideFlags: 0

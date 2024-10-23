@@ -131,7 +131,8 @@ public class JoyconController : MonoBehaviour {
 			// https://github.com/Looking-Glass/JoyconLib/issues/8
 			// gameObject.transform.Rotate(90,0,0,Space.World); 
 			// Debug.Log(gameObject.transform.rotation);
-			if(GunController.main.isReloading || GunController.main.inCooldown || TimeManager.main.isDayOver)
+			if( GunController.main != null && TimeManager.main != null &&
+				(GunController.main.isReloading || GunController.main.inCooldown || TimeManager.main.isDayOver))
 			{
 				rumbleEnable = false;
 			}else
