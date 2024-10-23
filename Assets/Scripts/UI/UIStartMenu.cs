@@ -14,12 +14,12 @@ public class UIStartMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // Hard code
+        if (Input.GetKeyDown(KeyCode.Mouse0)) Play();
     }
 
     public void Play()
     {
-        Screen.SetResolution(1366, 768, FullScreenMode.FullScreenWindow);
         SceneManager.LoadScene("Template");
     }
 }
