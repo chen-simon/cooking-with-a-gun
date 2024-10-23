@@ -80,9 +80,14 @@ public class GunController : MonoBehaviour
         {
             ShootEffect(hit);
             ShowGunTrail(hit.point);
+            TimeManager.main.totalShot++;
             if (hit.collider.tag == "Level")
             {
                 BulletHoleManager.main.CreateBulletHole(hit.point, Quaternion.LookRotation(hit.normal));
+            }
+            if(hit.collider.tag == "ValidTarget")
+            {
+                TimeManager.main.validShot++;
             }
         }
         else

@@ -767,6 +767,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315800230}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &317594375 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2887310973678984363, guid: 439b2e4a2f5624c9a82b620aaf3df659,
+    type: 3}
+  m_PrefabInstance: {fileID: 6174452045873446343}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &318323804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -854,6 +866,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: pan_model
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 225d74cfec04c41a3ab7e4cef235d15e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 6297631821460201394, guid: 225d74cfec04c41a3ab7e4cef235d15e,
+        type: 3}
+      propertyPath: m_TagString
+      value: ValidTarget
       objectReference: {fileID: 0}
     - target: {fileID: 8893545955800747564, guid: 225d74cfec04c41a3ab7e4cef235d15e,
         type: 3}
@@ -3977,11 +3999,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayDuration: 60
+  validShot: 0
+  totalShot: 0
   dayText: {fileID: 1976669979}
   timerText: {fileID: 1094283611}
   revenueText: {fileID: 428256467}
   orderCompleteText: {fileID: 185828029}
   summaryDayText: {fileID: 646448037}
+  shootAccuracy: {fileID: 317594375}
   summaryPanel: {fileID: 1983314755}
   orderManager: {fileID: 810784931}
   gameManager: {fileID: 1372456684}
@@ -4876,6 +4901,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 348813549}
     m_Modifications:
+    - target: {fileID: 2893524291803123975, guid: 830548ad0e75f4bbfad2d5e29a48e5b4,
+        type: 3}
+      propertyPath: m_TagString
+      value: ValidTarget
+      objectReference: {fileID: 0}
     - target: {fileID: 5382567237006499141, guid: 830548ad0e75f4bbfad2d5e29a48e5b4,
         type: 3}
       propertyPath: m_Name
@@ -5155,6 +5185,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dinner Bell
       objectReference: {fileID: 0}
+    - target: {fileID: 3561120307350263721, guid: 3163d6bf77727ff4ea9e032f59304cde,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 3982993592994001152, guid: 3163d6bf77727ff4ea9e032f59304cde,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5204,6 +5239,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8764395035857967550, guid: 3163d6bf77727ff4ea9e032f59304cde,
+        type: 3}
+      propertyPath: m_TagString
+      value: ValidTarget
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
