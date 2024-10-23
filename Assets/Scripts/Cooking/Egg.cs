@@ -8,6 +8,9 @@ public class Egg : MonoBehaviour, IShootable
     public GameObject eggInsidesPrefab;
     public float destroy_y = -1f;
     private EggLauncher eggLauncher;
+    private SFXList sfxList;
+    private AudioClip selectedClip;
+    AudioSource audioSource;
     public void Initialize(EggLauncher launcher)
     {
         eggLauncher = launcher; // Store reference to the launcher
@@ -45,5 +48,21 @@ public class Egg : MonoBehaviour, IShootable
         eggInsides.GetComponent<Rigidbody>().AddForce(knockbackForce);
 
         Destroy(gameObject);
+    }
+
+    private void PlayClip(){
+        if (sfxList != null  && sfxList.sfxClips.Length > 0 )
+        {
+            int randomIndex = Random.Range(0, sfxList.sfxClips.Length);
+            selectedClip = sfxList.sfxClips[randomIndex];
+        }
+        if (audioSource != null)
+        {
+            audioSource.PlayOneShot(selectedClip);
+        }
+        else
+        {
+            Debug.LogWarning("AudioSource component is missing on " + gameObject.name);
+        }
     }
 }

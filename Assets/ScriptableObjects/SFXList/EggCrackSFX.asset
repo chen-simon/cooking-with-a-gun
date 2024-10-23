@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d18e54f9deb9ed49963a0f038fe1d16, type: 3}
+  m_Name: EggCrackSFX
+  m_EditorClassIdentifier: 
+  sfxClips:
+  - {fileID: 8300000, guid: d72e54340a0d32c428a780ddd72efa90, type: 3}
+  - {fileID: 8300000, guid: 7d858fcc7ef539a49b7104d1ebfe90e2, type: 3}
+  - {fileID: 8300000, guid: 931ba5bebdec5f34c80098e27fc21ed1, type: 3}
+  - {fileID: 8300000, guid: d71025b926c958e4084473a034c9e920, type: 3}
+  - {fileID: 8300000, guid: 43453ef9994151744ab0f0c726c389cc, type: 3}

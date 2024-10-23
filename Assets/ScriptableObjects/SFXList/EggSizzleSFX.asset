@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d18e54f9deb9ed49963a0f038fe1d16, type: 3}
+  m_Name: EggSizzleSFX
+  m_EditorClassIdentifier: 
+  sfxClips:
+  - {fileID: 8300000, guid: bdf6858ac11774b2eac0421997bb168d, type: 3}
+  - {fileID: 8300000, guid: 3fd27b4847c4ff042afa9bd9a8d12cb3, type: 3}
+  - {fileID: 8300000, guid: 04fd8fc2b5d274541b2a4d81d71757eb, type: 3}
+  - {fileID: 8300000, guid: 11d3a65b2ec695e42af75e9865a9fb54, type: 3}
+  - {fileID: 8300000, guid: e99943f71e8d85d4c8886830636e7afe, type: 3}

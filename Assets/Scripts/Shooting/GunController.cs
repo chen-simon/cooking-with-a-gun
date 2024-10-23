@@ -157,9 +157,9 @@ public class GunController : MonoBehaviour
 
         rb.AddForce(knockbackForce);
 
-        AudioSource audioSource = rb.GetComponent<AudioSource>();
-        if (audioSource)
-            audioSource.Play();
+        // AudioSource audioSource = rb.GetComponent<AudioSource>();
+        // if (audioSource)
+        //     audioSource.Play();
 
         IShootable shootable = rb.GetComponent<IShootable>();
         if (shootable != null)
