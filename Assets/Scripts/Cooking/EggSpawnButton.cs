@@ -7,14 +7,14 @@ public class EggSpwanButton : MonoBehaviour, IShootable
     [SerializeField]EggLauncher eggLauncher;
     public void TakeShot(Vector3 knockbackForce)
     {
-        StartCoroutine(PressButtonEffect2());
+        StartCoroutine(PressButtonEffect());
         eggLauncher.LaunchEgg();
     }
 
     private IEnumerator PressButtonEffect()//this effect scales down the button
     {
         // Scale the button down to simulate a press
-        transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+        transform.localScale = new Vector3(0.85f, 0.85f, 0.85f);
         yield return new WaitForSeconds(0.2f);
         transform.localScale = new Vector3(1f, 1f, 1f);
     }
