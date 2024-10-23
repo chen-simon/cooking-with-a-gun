@@ -176,7 +176,11 @@ public class JoyconController : MonoBehaviour {
 		{
 			joycons[jc_ind].SetRumble(160, 320, currentGun.rumbleMagnitude, currentGun.rumbleTime); // Short 
 		}
-		GunController.main.Shoot();
+		if(!UIStartMenu.main.gameStart){
+			UIStartMenu.main.Play();
+		}else{
+			GunController.main.Shoot();
+		}
     }
 
 	public void ReloadInput()
