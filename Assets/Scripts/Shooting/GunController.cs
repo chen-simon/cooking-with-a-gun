@@ -136,7 +136,7 @@ public class GunController : MonoBehaviour
     private IEnumerator FadeGunTrail()
     {
         float elapsedTime = 0f;
-        float duration = 0.1f;
+        float duration = gunTrailTime;
 
         while (elapsedTime < duration)
         {
