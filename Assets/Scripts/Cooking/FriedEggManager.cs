@@ -42,7 +42,7 @@ public class FriedEggManager : MonoBehaviour
     public void Flip()
     {
         flips++;
-        if (flips >= 5)
+        if (flips >= 3)
         {
             CompleteTask(1);
         }
