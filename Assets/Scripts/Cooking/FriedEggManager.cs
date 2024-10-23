@@ -104,6 +104,7 @@ public class FriedEggManager : MonoBehaviour
         rb.angularVelocity = Vector3.zero;
         friedEgg.transform.DOMove(panLocation.position + new Vector3(0, 0.7f, 0), eggMoveTime);
         friedEgg.transform.DORotate(Vector3.zero, eggMoveTime);
+        friedEgg.gameObject.layer = 11;
 
         rb.useGravity = true;
         rb.detectCollisions = true;
