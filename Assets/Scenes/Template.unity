@@ -6042,11 +6042,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3539720437148315315, guid: 439b2e4a2f5624c9a82b620aaf3df659,
         type: 3}
-      propertyPath: instructions.Array.data[0]
-      value: Shoot the button the wall, then crack an egg.
-      objectReference: {fileID: 0}
-    - target: {fileID: 3539720437148315315, guid: 439b2e4a2f5624c9a82b620aaf3df659,
-        type: 3}
       propertyPath: thingsToUnhide.Array.data[1]
       value: 
       objectReference: {fileID: 1843847883}

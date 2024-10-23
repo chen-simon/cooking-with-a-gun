@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 6689534058389177076}
+  image: {fileID: 0}
   full: {r: 1, g: 1, b: 1, a: 1}
   empty: {r: 1, g: 1, b: 1, a: 0}
   fadeInDelay: 1
@@ -305,6 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 2344155789592459727}
+  image: {fileID: 0}
   full: {r: 1, g: 1, b: 1, a: 1}
   empty: {r: 1, g: 1, b: 1, a: 0}
   fadeInDelay: 0
@@ -402,7 +404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instructions:
-  - Pull the trigger to shoot. Try cracking an egg
+  - Shoot the button the wall, then crack an egg.
   - Shoot the handle to flip the egg a few times
   - Ring the bell to finish the order!
   thingsToUnhide:
@@ -1114,6 +1116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 5942534854137094185}
+  image: {fileID: 0}
   full: {r: 1, g: 1, b: 1, a: 1}
   empty: {r: 1, g: 1, b: 1, a: 0}
   fadeInDelay: 1
@@ -1139,7 +1142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8120570726223080101
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1156,7 +1159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 103.69995, y: -44}
+  m_AnchoredPosition: {x: 128.87, y: -44}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8692803705262294434
@@ -1270,6 +1273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 4218065926104052266}
+  image: {fileID: 0}
   full: {r: 1, g: 1, b: 1, a: 1}
   empty: {r: 1, g: 1, b: 1, a: 0}
   fadeInDelay: 1
@@ -1740,6 +1744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1075418714908533212}
+  image: {fileID: 0}
   full: {r: 1, g: 1, b: 1, a: 1}
   empty: {r: 1, g: 1, b: 1, a: 0}
   fadeInDelay: 1
@@ -2052,6 +2057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1309869563340891601}
+  image: {fileID: 0}
   full: {r: 1, g: 1, b: 1, a: 1}
   empty: {r: 1, g: 1, b: 1, a: 0}
   fadeInDelay: 0
