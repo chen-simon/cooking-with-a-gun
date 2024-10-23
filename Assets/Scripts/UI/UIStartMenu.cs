@@ -27,6 +27,7 @@ public class UIStartMenu : MonoBehaviour
 
     IEnumerator PlayCoroutine()
     {
+        GetComponent<AudioSource>().Play();
         fadeOut.SetActive(true);
         yield return new WaitForSeconds(fadeTime);
         SceneManager.LoadScene("Template");
