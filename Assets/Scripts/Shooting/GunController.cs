@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
 using UnityEngine;
 
 public class GunController : MonoBehaviour
@@ -21,10 +22,11 @@ public class GunController : MonoBehaviour
     public float screenShakeMagnitude = 0.1f;
     public float screenShakeDuration = 0.1f;
 
+    public bool inCooldown;
+    public bool isReloading;
+    public bool isFull = true;
     public float gunTrailTime = 0.1f;
 
-    bool inCooldown;
-    bool isReloading;
 
     // Reference point for bulle trail -- should be used to reference a empty game object at where the bullet trail is supposed to start
     public Transform muzzle;
@@ -44,8 +46,7 @@ public class GunController : MonoBehaviour
 
     void Start()
     {
-        ammo = currentGun.ammoCapacity;
-
+        InitialGun();
         if (gunTrail != null)
         {
             gunTrail.positionCount = 0;
@@ -57,11 +58,15 @@ public class GunController : MonoBehaviour
     {
         UpdateGunModelRotation();
     }
-
+    public void InitialGun()
+    {
+        ammo = currentGun.ammoCapacity;
+    }
     public void Shoot()
     {
         if (inCooldown) return;
         if (isReloading) return;
+        if (TimeManager.main.isDayOver) return;
         if (ammo <= 0)
         {
             Reload();
@@ -69,7 +74,7 @@ public class GunController : MonoBehaviour
         }
 
         ammo--;
-
+        isFull = false;
         CameraController.main.Shake(
             currentGun.screenShakeDuration,
             currentGun.screenShakeMagnitude);
@@ -82,9 +87,14 @@ public class GunController : MonoBehaviour
         {
             ShootEffect(hit);
             ShowGunTrail(hit.point);
+            TimeManager.main.totalShot++;
             if (hit.collider.tag == "Level")
             {
                 BulletHoleManager.main.CreateBulletHole(hit.point, Quaternion.LookRotation(hit.normal));
+            }
+            if(hit.collider.tag == "ValidTarget")
+            {
+                TimeManager.main.validShot++;
             }
         }
         else
@@ -206,12 +216,14 @@ public class GunController : MonoBehaviour
         yield return new WaitForSeconds(currentGun.reloadTime);
         ammo = currentGun.ammoCapacity;
         isReloading = false;
+        isFull = true;
     }
 
     public void Reload()
     {
         if (isReloading) return;
         if (ammo == currentGun.ammoCapacity) return;
+        if (TimeManager.main.isDayOver) return;
 
         StopCoroutine(ReloadCoroutine());
         StartCoroutine(ReloadCoroutine());
