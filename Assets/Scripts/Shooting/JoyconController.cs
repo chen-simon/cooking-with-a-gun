@@ -12,6 +12,7 @@ public class JoyconController : MonoBehaviour {
     public Vector3 gyro;
     public Vector3 accel;
     public int jc_ind = 0;
+	public bool rumbleEnable = true;
     public Quaternion orientation;
     private Quaternion aim_offset;
 	public float pointerSensitivity = 1600f;
@@ -82,7 +83,6 @@ public class JoyconController : MonoBehaviour {
 			{
 				Debug.Log ("DPAD_LEFT pressed");
 				ReloadInput();
-				j.SetRumble (100, 150, 0.6f, 100);
 			}
 			if (j.GetButtonDown (Joycon.Button.DPAD_LEFT))
 			{
@@ -131,6 +131,13 @@ public class JoyconController : MonoBehaviour {
 			// https://github.com/Looking-Glass/JoyconLib/issues/8
 			// gameObject.transform.Rotate(90,0,0,Space.World); 
 			// Debug.Log(gameObject.transform.rotation);
+			if(GunController.main.isReloading || GunController.main.inCooldown || TimeManager.main.isDayOver)
+			{
+				rumbleEnable = false;
+			}else
+			{
+				rumbleEnable = true;
+			}
         }
 	    
     }
@@ -165,14 +172,20 @@ public class JoyconController : MonoBehaviour {
     {
 	    // Debug.Log ("Right trigger pressed");
 	    Gun currentGun = GunController.main.currentGun;
-
-	    joycons[jc_ind].SetRumble(160, 320, currentGun.rumbleMagnitude, currentGun.rumbleTime); // Short 
-	    GunController.main.Shoot();
+	    if(rumbleEnable)
+		{
+			joycons[jc_ind].SetRumble(160, 320, currentGun.rumbleMagnitude, currentGun.rumbleTime); // Short 
+		}
+		GunController.main.Shoot();
     }
 
 	public void ReloadInput()
     {
-        GunController.main.Reload();
+        if(!GunController.main.isFull && rumbleEnable)
+		{
+			joycons[jc_ind].SetRumble (100, 150, 0.6f, 100);
+		}
+		GunController.main.Reload();
     }
 
 	public void StartNextDayInput()

@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
 using System;
+using System.Collections;
 
 public class TimeManager : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class TimeManager : MonoBehaviour
     private int totalDays;
     public int validShot;
     public int totalShot;
-    private bool isDayOver;
+    public bool isDayOver;
     public static TimeManager main;
     public TextMeshProUGUI dayText; // UI Text for displaying current day
     public TextMeshProUGUI timerText; // UI Text for displaying remaining time
@@ -60,25 +61,22 @@ public class TimeManager : MonoBehaviour
 
     void EndOfDay()
     {
+        StartCoroutine(EndOfDayCoroutine());
+    }
+    private IEnumerator EndOfDayCoroutine(){
         isDayOver = true; // Mark that the day is over
+        yield return new WaitForSeconds(0.2f);
         ShowSummary(); // Show the summary UI
         Time.timeScale = 0f; // Pause the game
     }
-
     void ShowSummary()
     {
         summaryDayText.text = Convert.ToString(totalDays);
         orderCompleteText.text = Convert.ToString(orderManager.orderCounter);
         revenueText.text = Convert.ToString(gameManager.revenue);
         if (totalShot > 0)  shootAccuracy.text = "Shoot Accuracy " + ((double)validShot / totalShot * 100).ToString("F2") + "%";  // "F2" ensures 2 decimal places
-        else shootAccuracy.text = "0%";  // If no shots fired, display 0% accuracy
+        else shootAccuracy.text = "Shoot Accuracy 0%";  // If no shots fired, display 0% accuracy
         summaryPanel.SetActive(true); // Show the summary panel
-    }
-
-    int CalculateEarnings()
-    {
-        // Example calculation for earnings (this can be replaced with actual logic)
-        return totalDays * 10; // Example: earnings increase with each day
     }
 
     public void StartNextDay()
