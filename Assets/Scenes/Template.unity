@@ -3998,9 +3998,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b064f6b22b2118c439bb92cf342791fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayDuration: 60
+  dayDuration: 5
   validShot: 0
   totalShot: 0
+  isDayOver: 0
   dayText: {fileID: 1976669979}
   timerText: {fileID: 1094283611}
   revenueText: {fileID: 428256467}

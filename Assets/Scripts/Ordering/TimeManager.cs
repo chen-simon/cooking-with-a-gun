@@ -61,14 +61,11 @@ public class TimeManager : MonoBehaviour
 
     void EndOfDay()
     {
-        StartCoroutine(EndOfDayCoroutine());
-    }
-    private IEnumerator EndOfDayCoroutine(){
         isDayOver = true; // Mark that the day is over
-        yield return new WaitForSeconds(0.2f);
         ShowSummary(); // Show the summary UI
         Time.timeScale = 0f; // Pause the game
     }
+
     void ShowSummary()
     {
         summaryDayText.text = Convert.ToString(totalDays);
@@ -81,6 +78,7 @@ public class TimeManager : MonoBehaviour
 
     public void StartNextDay()
     {
+        if (!isDayOver) return;
         isDayOver = false; // Reset the day status
         totalDays++; // Increment the day count
         UpdateDayText(); // Update the UI for the new day

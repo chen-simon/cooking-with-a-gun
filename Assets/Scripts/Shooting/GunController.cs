@@ -62,6 +62,7 @@ public class GunController : MonoBehaviour
     {
         if (inCooldown) return;
         if (isReloading) return;
+        if (TimeManager.main.isDayOver) return;
         if (ammo <= 0)
         {
             Reload();
