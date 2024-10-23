@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] AudioSource moneySound;
 
     public int revenue = 0;
-
+    public bool gamePaused = false;
     private void Awake()
     {
         if (main) Destroy(gameObject);
@@ -54,5 +54,18 @@ public class GameManager : MonoBehaviour
     {
         revenue += recipe.price;
         moneySound.Play();
+    }
+
+    public void PauseGame()
+    {
+        if(gamePaused) return;
+        Time.timeScale = 0f;
+        gamePaused = true;
+    }
+    public void ResumeGame()
+    {
+        if(!gamePaused) return;
+        Time.timeScale = 1f;
+        gamePaused = false;
     }
 }

@@ -2944,6 +2944,7 @@ MonoBehaviour:
   orderManager: {fileID: 810784931}
   moneySound: {fileID: 1372456686}
   revenue: 0
+  gamePaused: 0
 --- !u!4 &1372456685
 Transform:
   m_ObjectHideFlags: 0
@@ -3998,7 +3999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b064f6b22b2118c439bb92cf342791fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayDuration: 5
+  dayDuration: 60
   validShot: 0
   totalShot: 0
   isDayOver: 0

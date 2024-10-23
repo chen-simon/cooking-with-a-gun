@@ -61,9 +61,15 @@ public class TimeManager : MonoBehaviour
 
     void EndOfDay()
     {
+        StartCoroutine(EndOfDayCoroutine());
+    }
+
+    private IEnumerator EndOfDayCoroutine()
+    {
         isDayOver = true; // Mark that the day is over
+        yield return new WaitForSeconds(0.3f);//set a window to prevent rumble
         ShowSummary(); // Show the summary UI
-        Time.timeScale = 0f; // Pause the game
+        GameManager.main.PauseGame();
     }
 
     void ShowSummary()
@@ -78,7 +84,7 @@ public class TimeManager : MonoBehaviour
 
     public void StartNextDay()
     {
-        if (!isDayOver) return;
+        if (!isDayOver || !GameManager.main.gamePaused) return;
         isDayOver = false; // Reset the day status
         totalDays++; // Increment the day count
         UpdateDayText(); // Update the UI for the new day
@@ -88,7 +94,7 @@ public class TimeManager : MonoBehaviour
         totalShot = 0;
         validShot = 0;
         summaryPanel.SetActive(false); // Hide the summary panel
-        Time.timeScale = 1f; // Resume the game
+        GameManager.main.ResumeGame();
     }
 
     void UpdateDayText()
