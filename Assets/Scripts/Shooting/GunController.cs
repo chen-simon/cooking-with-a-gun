@@ -21,6 +21,8 @@ public class GunController : MonoBehaviour
     public float screenShakeMagnitude = 0.1f;
     public float screenShakeDuration = 0.1f;
 
+    public float gunTrailTime = 0.1f;
+
     bool inCooldown;
     bool isReloading;
 
