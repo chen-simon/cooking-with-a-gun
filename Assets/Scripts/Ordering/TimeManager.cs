@@ -2,19 +2,23 @@ using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
 using System;
+using System.Collections;
 
 public class TimeManager : MonoBehaviour
 {
     public float dayDuration = 180f; // 3 minutes = 180 seconds
     private float currentTime;
     private int totalDays;
-    private bool isDayOver;
+    public int validShot;
+    public int totalShot;
+    public bool isDayOver;
     public static TimeManager main;
     public TextMeshProUGUI dayText; // UI Text for displaying current day
     public TextMeshProUGUI timerText; // UI Text for displaying remaining time
     public TextMeshProUGUI revenueText;
     public TextMeshProUGUI orderCompleteText;
     public TextMeshProUGUI summaryDayText;
+    public TextMeshProUGUI shootAccuracy;
     public GameObject summaryPanel; // A panel to show summary and wait for player input
     [SerializeField]private OrderManager orderManager;
     [SerializeField]private GameManager gameManager;
@@ -28,6 +32,8 @@ public class TimeManager : MonoBehaviour
         totalDays = 1;
         currentTime = dayDuration;
         isDayOver = false;
+        totalShot = 0;
+        validShot = 0;
         UpdateDayText();
         summaryPanel.SetActive(false); // Hide the summary UI initially
     }
@@ -55,9 +61,15 @@ public class TimeManager : MonoBehaviour
 
     void EndOfDay()
     {
+        StartCoroutine(EndOfDayCoroutine());
+    }
+
+    private IEnumerator EndOfDayCoroutine()
+    {
         isDayOver = true; // Mark that the day is over
+        yield return new WaitForSeconds(0.3f);//set a window to prevent rumble
         ShowSummary(); // Show the summary UI
-        Time.timeScale = 0f; // Pause the game
+        GameManager.main.PauseGame();
     }
 
     void ShowSummary()
@@ -65,25 +77,25 @@ public class TimeManager : MonoBehaviour
         summaryDayText.text = Convert.ToString(totalDays);
         orderCompleteText.text = Convert.ToString(orderManager.orderCounter);
         revenueText.text = Convert.ToString(gameManager.revenue);
+        if (totalShot > 0)  shootAccuracy.text = "Shoot Accuracy " + ((double)validShot / totalShot * 100).ToString("F2") + "%";  // "F2" ensures 2 decimal places
+        else shootAccuracy.text = "Shoot Accuracy 0%";  // If no shots fired, display 0% accuracy
         summaryPanel.SetActive(true); // Show the summary panel
-    }
-
-    int CalculateEarnings()
-    {
-        // Example calculation for earnings (this can be replaced with actual logic)
-        return totalDays * 10; // Example: earnings increase with each day
     }
 
     public void StartNextDay()
     {
+        if (!isDayOver || !GameManager.main.gamePaused) return;
         isDayOver = false; // Reset the day status
         totalDays++; // Increment the day count
         UpdateDayText(); // Update the UI for the new day
         currentTime = dayDuration; // Reset the day timer
         orderManager.orderCounter = 0;
         gameManager.revenue = 0;
+        totalShot = 0;
+        validShot = 0;
         summaryPanel.SetActive(false); // Hide the summary panel
-        Time.timeScale = 1f; // Resume the game
+        GunController.main.InitialGun();
+        GameManager.main.ResumeGame();
     }
 
     void UpdateDayText()

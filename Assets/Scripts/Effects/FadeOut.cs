@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FadeOut : MonoBehaviour
 {
     public TextMeshProUGUI text;
+    public Image image;
     public Color full;
     public Color empty;
 
@@ -27,10 +29,16 @@ public class FadeOut : MonoBehaviour
         
     }
 
+    void SetColor(Color color)
+    {
+        if (image) image.color = color;
+        if (text) text.color = color;
+    }
+
     IEnumerator FadeOutCoroutine()
     {
 
-        text.color = empty;
+        SetColor(empty);
 
         yield return new WaitForSeconds(fadeInDelay);
 
@@ -41,10 +49,12 @@ public class FadeOut : MonoBehaviour
             float endTime = startTime + fadeTime;
             while(Time.time < endTime)
             {
-                text.color = Color.Lerp(full, empty, (endTime - Time.time) / fadeTime);
+                SetColor(Color.Lerp(full, empty, (endTime - Time.time) / fadeTime));
                 yield return null;
             }
         }
+
+        SetColor(full);
 
         // Hold
         yield return new WaitForSeconds(holdTime);
@@ -56,12 +66,11 @@ public class FadeOut : MonoBehaviour
             float endTime = startTime + fadeTime;
             while(Time.time < endTime)
             {
-                text.color = Color.Lerp(empty, full, (endTime - Time.time) / fadeTime);
+                SetColor(Color.Lerp(empty, full, (endTime - Time.time) / fadeTime));
                 yield return null;
             }
             gameObject.SetActive(false);
         }
 
-        text.color = full;
     }
 }
