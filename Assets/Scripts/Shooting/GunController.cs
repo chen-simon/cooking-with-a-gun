@@ -44,8 +44,7 @@ public class GunController : MonoBehaviour
 
     void Start()
     {
-        ammo = currentGun.ammoCapacity;
-
+        InitialGun();
         if (gunTrail != null)
         {
             gunTrail.positionCount = 0;
@@ -57,7 +56,10 @@ public class GunController : MonoBehaviour
     {
         UpdateGunModelRotation();
     }
-
+    public void InitialGun()
+    {
+        ammo = currentGun.ammoCapacity;
+    }
     public void Shoot()
     {
         if (inCooldown) return;

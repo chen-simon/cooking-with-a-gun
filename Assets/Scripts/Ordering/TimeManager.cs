@@ -94,6 +94,7 @@ public class TimeManager : MonoBehaviour
         totalShot = 0;
         validShot = 0;
         summaryPanel.SetActive(false); // Hide the summary panel
+        GunController.main.InitialGun();
         GameManager.main.ResumeGame();
     }
 
