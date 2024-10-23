@@ -26,7 +26,7 @@ public class GunController : MonoBehaviour
     public bool isReloading;
     public bool isFull = true;
     public float gunTrailTime = 0.1f;
-    private Animator animator;
+   [SerializeField]  private Animator animator;
 
     // Reference point for bulle trail -- should be used to reference a empty game object at where the bullet trail is supposed to start
     public Transform muzzle;
@@ -51,7 +51,6 @@ public class GunController : MonoBehaviour
         {
             gunTrail.positionCount = 0;
         }
-        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -215,7 +214,7 @@ public class GunController : MonoBehaviour
     {
         isReloading = true;
         reloadAudio.Play();
-        animator.SetTrigger("Reload");
+        animator.SetTrigger("PlayReload");
         yield return new WaitForSeconds(currentGun.reloadTime);
         ammo = currentGun.ammoCapacity;
         isReloading = false;
