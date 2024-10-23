@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 213558115288237134}
   - component: {fileID: 6804410913801849839}
   - component: {fileID: 2610863667460763456}
-  - component: {fileID: 3254192780494341487}
+  - component: {fileID: 4232917129328861516}
   m_Layer: 0
   m_Name: Order Info UI
   m_TagString: Untagged
@@ -230,7 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodItem: {fileID: 5477736876795545146}
   customer: {fileID: 0}
---- !u!114 &3254192780494341487
+--- !u!114 &4232917129328861516
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8042012228949754007}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cbcf56c934a1408d98f0ed3f307690e, type: 3}
+  m_Script: {fileID: 11500000, guid: 1387241a6ddcc4a1c8357fed5dc8517a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   frequency: 3

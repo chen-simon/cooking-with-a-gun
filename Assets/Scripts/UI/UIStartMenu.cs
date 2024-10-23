@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class UIStartMenu : MonoBehaviour
 {
+    public float fadeTime;
+    [SerializeField] GameObject fadeOut;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,12 +16,19 @@ public class UIStartMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // Hard code
+        if (Input.GetKeyDown(KeyCode.Mouse0)) Play();
     }
 
     public void Play()
     {
-        Screen.SetResolution(1366, 768, FullScreenMode.FullScreenWindow);
+        StartCoroutine(PlayCoroutine());
+    }
+
+    IEnumerator PlayCoroutine()
+    {
+        fadeOut.SetActive(true);
+        yield return new WaitForSeconds(fadeTime);
         SceneManager.LoadScene("Template");
     }
 }

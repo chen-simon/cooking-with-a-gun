@@ -25,6 +25,8 @@ public class GunController : MonoBehaviour
     public bool inCooldown;
     public bool isReloading;
     public bool isFull = true;
+    public float gunTrailTime = 0.1f;
+
 
     // Reference point for bulle trail -- should be used to reference a empty game object at where the bullet trail is supposed to start
     public Transform muzzle;
@@ -144,7 +146,7 @@ public class GunController : MonoBehaviour
     private IEnumerator FadeGunTrail()
     {
         float elapsedTime = 0f;
-        float duration = 0.1f;
+        float duration = gunTrailTime;
 
         while (elapsedTime < duration)
         {
